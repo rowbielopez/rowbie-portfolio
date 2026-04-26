@@ -139,6 +139,15 @@ export default async function ProjectPage({ params }: PageProps) {
               </div>
             )}
           </div>
+
+          {/* Project image — full width, prominent */}
+          <div className="mt-10">
+            <ProjectImage
+              src={project.image}
+              alt={`${project.title} — project screenshot`}
+              full
+            />
+          </div>
         </div>
       </div>
 
@@ -189,10 +198,7 @@ export default async function ProjectPage({ params }: PageProps) {
             </div>
 
             {/* Project image */}
-            <ProjectImage
-              src={project.image}
-              alt={`${project.title} screenshot`}
-            />
+            {/* Removed from sidebar — shown prominently in hero section above */}
 
             {/* CTA */}
             <div className="bg-[#111111] rounded-2xl p-5 text-white">

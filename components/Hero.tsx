@@ -38,7 +38,7 @@ export default function Hero() {
       <div className="absolute top-16 left-0 right-0 h-px bg-[#E5E5E5] pointer-events-none" />
 
       <div className="relative z-10 max-w-7xl mx-auto px-6 md:px-12 lg:px-24 w-full pt-24 pb-20">
-        <div className="grid grid-cols-1 lg:grid-cols-[1fr_360px] xl:grid-cols-[1fr_400px] gap-14 xl:gap-20 items-center">
+        <div className="grid grid-cols-1 lg:grid-cols-[1fr_380px] xl:grid-cols-[1fr_440px] gap-14 xl:gap-20 items-center">
           {/* ── LEFT: Text ── */}
           <div>
             <motion.div
@@ -163,9 +163,9 @@ export default function Hero() {
               <Image
                 src="/rowbie.png"
                 alt="Rowbie Lopez, MIT, LPT — ICT Educator and Web Systems Developer"
-                width={272}
-                height={384}
-                className="object-contain w-[230px] xl:w-[272px] h-auto"
+                width={420}
+                height={560}
+                className="object-contain w-[320px] xl:w-[420px] h-auto"
                 priority
                 quality={100}
               />

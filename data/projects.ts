@@ -77,7 +77,13 @@ export const projects: Project[] = [
     fullDescription:
       "SIPLocator is a coffee shop discovery platform that connects coffee enthusiasts with local shops. Users can find nearby coffee shops, explore store details, view menus and operating hours, and discover new spots — while helping local coffee businesses in the Philippines gain digital visibility and attract new customers.",
     role: "Founder / Product Owner",
-    technologies: ["Next.js", "TypeScript", "Google Maps API", "Supabase", "Tailwind CSS"],
+    technologies: [
+      "Next.js",
+      "TypeScript",
+      "Google Maps API",
+      "Supabase",
+      "Tailwind CSS",
+    ],
     status: "Prototype",
     year: "2024–Present",
     url: "To be provided",
@@ -143,7 +149,12 @@ export const projects: Project[] = [
     fullDescription:
       "RobTech Journey is an ICT content platform and advocacy initiative founded by Rowbie Lopez. It focuses on sharing practical technology knowledge, digital tools, productivity workflows, programming concepts, and cybersecurity basics — with the goal of making ICT education more accessible and relevant for Filipino students, teachers, and professionals.",
     role: "Founder / Content Creator",
-    technologies: ["Content Creation", "Video Production", "Digital Tools", "Social Media"],
+    technologies: [
+      "Content Creation",
+      "Video Production",
+      "Digital Tools",
+      "Social Media",
+    ],
     status: "Active",
     year: "Ongoing",
     url: "https://www.facebook.com/RobsTechJourney",

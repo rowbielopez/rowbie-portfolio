@@ -6,20 +6,33 @@ import Image from "next/image";
 interface Props {
   src?: string;
   alt: string;
+  /** When true, renders at full content width with a taller aspect ratio */
+  full?: boolean;
 }
 
-export function ProjectImage({ src, alt }: Props) {
+export function ProjectImage({ src, alt, full }: Props) {
   const [hasError, setHasError] = useState(false);
+
+  const containerClass = full
+    ? "w-full aspect-[16/7] rounded-2xl overflow-hidden border border-[#E5E5E5] bg-[#F5F5F5]"
+    : "w-full aspect-video rounded-xl overflow-hidden border border-[#E5E5E5] bg-[#F5F5F5]";
+
+  const placeholderClass = full
+    ? "w-full aspect-[16/7] flex items-center justify-center bg-[#F5F5F5] rounded-2xl border border-[#E5E5E5]"
+    : "w-full aspect-video flex items-center justify-center bg-[#F5F5F5] rounded-xl border border-[#E5E5E5]";
 
   if (!src || hasError) {
     return (
-      <div className="w-full aspect-video flex items-center justify-center bg-[#F5F5F5] rounded-xl border border-[#E5E5E5]">
+      <div className={placeholderClass}>
         <div className="text-center">
-          <div className="w-8 h-8 rounded-lg bg-[#E5E5E5] flex items-center justify-center mx-auto mb-2">
-            <div className="w-4 h-3 bg-[#CCCCCC] rounded-sm" />
+          <div className="w-10 h-10 rounded-xl bg-[#E5E5E5] flex items-center justify-center mx-auto mb-2.5">
+            <div className="w-5 h-4 bg-[#CCCCCC] rounded-sm" />
           </div>
-          <p className="text-[10px] text-[#BBBBBB] tracking-wide">
+          <p className="text-[11px] text-[#BBBBBB] tracking-wide">
             Preview coming soon
+          </p>
+          <p className="text-[9px] text-[#D4D4D4] mt-1 tracking-wide">
+            Image will be added
           </p>
         </div>
       </div>
@@ -27,14 +40,14 @@ export function ProjectImage({ src, alt }: Props) {
   }
 
   return (
-    <div className="relative w-full aspect-video overflow-hidden rounded-xl border border-[#E5E5E5]">
+    <div className={`relative ${containerClass}`}>
       <Image
         src={src}
         alt={alt}
         fill
-        className="object-cover transition-transform duration-500 hover:scale-[1.03]"
+        className="object-cover transition-transform duration-500 hover:scale-[1.02]"
         onError={() => setHasError(true)}
-        sizes="(max-width: 768px) 100vw, 260px"
+        sizes={full ? "(max-width: 1024px) 100vw, 960px" : "(max-width: 768px) 100vw, 260px"}
       />
     </div>
   );
