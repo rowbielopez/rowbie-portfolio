@@ -152,7 +152,7 @@ export default function ConversionCTA() {
                       transition={{ duration: 0.15 }}
                       className="text-xs text-[#BBBBBB]"
                     >
-                      Hover to learn more
+                      Explore this service
                     </motion.p>
                   )}
                 </AnimatePresence>

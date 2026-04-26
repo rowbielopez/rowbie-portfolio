@@ -129,9 +129,11 @@ export default async function ProjectPage({ params }: PageProps) {
                 Visit Project
               </a>
             ) : (
-              <div className="flex items-center gap-1.5 text-[#BBBBBB]">
-                <Tag size={13} />
-                <span>{project.url}</span>
+              <div className="flex items-center gap-1.5">
+                <Tag size={13} className="text-[#AAAAAA]" />
+                <span className="text-[10px] font-medium px-2.5 py-1 bg-[#F5F5F5] border border-[#E5E5E5] rounded-full text-[#888888] tracking-wide">
+                  {project.url === "Internal / Restricted Access" ? "Internal System" : "Link coming soon"}
+                </span>
               </div>
             )}
           </div>

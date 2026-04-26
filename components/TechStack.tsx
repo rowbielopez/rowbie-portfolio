@@ -1,7 +1,7 @@
 "use client";
 
 import { motion, type Variants } from "framer-motion";
-import { Layers, Server, Wrench, Sparkles } from "lucide-react";
+import { Layers, Database, Cloud, Palette, Sparkles } from "lucide-react";
 import {
   fadeUp,
   staggerContainer,
@@ -10,47 +10,29 @@ import {
 
 const techGroups = [
   {
-    label: "Frontend",
+    label: "Build Interfaces",
     icon: Layers,
-    items: [
-      "HTML",
-      "CSS",
-      "JavaScript",
-      "TypeScript",
-      "Tailwind CSS",
-      "Bootstrap",
-      "shadcn/ui",
-    ],
+    items: ["HTML", "CSS", "JavaScript", "TypeScript", "Tailwind CSS", "Bootstrap", "shadcn/ui"],
   },
   {
-    label: "Backend & Database",
-    icon: Server,
-    items: ["PHP", "Laravel", "MySQL", "PostgreSQL", "Supabase", "Firebase"],
+    label: "Develop Systems",
+    icon: Database,
+    items: ["PHP", "Laravel", "Next.js", "MySQL", "PostgreSQL", "Supabase", "Firebase"],
   },
   {
-    label: "Tools & Deployment",
-    icon: Wrench,
-    items: [
-      "VS Code",
-      "GitHub",
-      "Cursor",
-      "Claude Code",
-      "Vercel",
-      "Plesk",
-      "cPanel",
-    ],
+    label: "Deploy & Maintain",
+    icon: Cloud,
+    items: ["VS Code", "GitHub", "Vercel", "Plesk", "cPanel"],
   },
   {
-    label: "AI & Productivity",
+    label: "Create & Communicate",
+    icon: Palette,
+    items: ["Canva", "CapCut", "Multimedia Editing", "Content Creation"],
+  },
+  {
+    label: "AI & Productivity Tools",
     icon: Sparkles,
-    items: [
-      "ChatGPT",
-      "Claude",
-      "GitHub Copilot",
-      "Lovable",
-      "Canva",
-      "CapCut",
-    ],
+    items: ["ChatGPT", "Claude Code", "GitHub Copilot", "Cursor", "Lovable"],
   },
 ];
 
@@ -85,9 +67,10 @@ export default function TechStack() {
           </p>
         </motion.div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
           {techGroups.map((group, groupIndex) => {
             const GroupIcon = group.icon;
+            const isLastOdd = groupIndex === techGroups.length - 1 && techGroups.length % 3 !== 0;
             return (
               <motion.div
                 key={group.label}
@@ -99,7 +82,7 @@ export default function TechStack() {
                   delay: groupIndex * 0.08,
                   ease: "easeOut",
                 }}
-                className="bg-[#FAFAFA] border border-[#E5E5E5] rounded-2xl p-6"
+                className={`bg-[#FAFAFA] border border-[#E5E5E5] rounded-2xl p-6 ${isLastOdd ? "md:col-span-2 lg:col-span-1" : ""}`}
               >
                 {/* Group header */}
                 <div className="flex items-center gap-3 mb-5">

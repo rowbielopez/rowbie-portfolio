@@ -85,42 +85,33 @@ export default function About() {
 
             <div className="space-y-4 text-[#555555] leading-relaxed mt-4">
               <p>
-                I am an{" "}
-                <strong className="text-[#111111]">ICT Instructor</strong> and{" "}
-                <strong className="text-[#111111]">
-                  Web/Information Systems Developer
-                </strong>{" "}
-                at{" "}
-                <strong className="text-[#111111]">
-                  Cagayan State University
-                </strong>
-                , with more than a decade of experience in ICT education,
-                technical support, university information systems, and digital
-                transformation.
-              </p>
-              <p>
-                I serve in a dual role as{" "}
+                ICT Instructor and Web/Information Systems Developer at{" "}
+                <strong className="text-[#111111]">Cagayan State University</strong>{" "}
+                — dual role as{" "}
                 <strong className="text-[#111111]">Instructor III</strong> and{" "}
-                <strong className="text-[#111111]">
-                  University Senior Programmer / Project Development Leader
-                </strong>{" "}
-                at the Management Information Systems Office, where I lead the
-                development and enhancement of university digital platforms.
+                <strong className="text-[#111111]">University Senior Programmer</strong>{" "}
+                at the MIS Office. Over a decade of experience spanning ICT education,
+                university systems development, and digital transformation.
               </p>
-              <p>
-                My work includes university platforms such as{" "}
-                <span className="text-[#111111] font-medium">
-                  E2E, HRIS, OFES
+            </div>
+
+            {/* Quick fact chips */}
+            <div className="flex flex-wrap gap-2 mt-4">
+              {[
+                "Instructor III — CSU",
+                "Senior Programmer — MIS Office",
+                "E2E · HRIS · OFES Systems",
+                "ICT Education — 10+ Years",
+                "Licensed Professional Teacher",
+                "RobTech Journey Founder",
+              ].map((fact) => (
+                <span
+                  key={fact}
+                  className="text-[11px] font-medium px-3 py-1.5 bg-[#F5F5F5] border border-[#E5E5E5] rounded-full text-[#555555]"
+                >
+                  {fact}
                 </span>
-                , CSU websites, campus websites, student portals, appointment
-                systems, queueing systems, alumni systems, and other digital
-                service platforms. I also build personal EdTech and
-                community-focused platforms, and share digital content through{" "}
-                <span className="font-medium text-[#111111]">
-                  RobTech Journey
-                </span>
-                .
-              </p>
+              ))}
             </div>
 
             {/* Key values */}

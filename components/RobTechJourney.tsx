@@ -71,7 +71,7 @@ export default function RobTechJourney() {
                 <ExternalLink size={14} />
                 Visit RobTech Journey
               </motion.a>
-              <span className="text-xs text-[#555555]">URL to be provided</span>
+
             </div>
           </motion.div>
 

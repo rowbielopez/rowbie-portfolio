@@ -3,7 +3,7 @@
 import { useCallback, useRef } from "react";
 import Image from "next/image";
 import { motion } from "framer-motion";
-import { ArrowDown, Download, Mail, ChevronRight } from "lucide-react";
+import { ArrowDown, Mail, ChevronRight } from "lucide-react";
 
 export default function Hero() {
   const heroRef = useRef<HTMLElement>(null);
@@ -118,14 +118,7 @@ export default function Hero() {
                 Contact Me
               </motion.button>
 
-              <a
-                href="/resume.pdf"
-                download
-                className="inline-flex items-center gap-1.5 px-4 py-2.5 text-xs font-medium text-[#999999] hover:text-[#444444] border border-transparent hover:border-[#E5E5E5] rounded-lg transition-all"
-              >
-                <Download size={12} />
-                Resume
-              </a>
+
             </motion.div>
 
             {/* Stats */}
