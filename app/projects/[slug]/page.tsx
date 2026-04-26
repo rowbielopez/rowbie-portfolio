@@ -11,6 +11,7 @@ import {
 } from "lucide-react";
 import { projects, getProjectBySlug } from "@/data/projects";
 import { CaseStudyTabs } from "@/components/ui/CaseStudyTabs";
+import { ProjectImage } from "@/components/ui/ProjectImage";
 
 interface PageProps {
   params: Promise<{ slug: string }>;
@@ -54,9 +55,10 @@ export default async function ProjectPage({ params }: PageProps) {
     bg: "bg-[#F5F5F5]",
     text: "text-[#666666]",
   };
-  const isInternal =
-    project.url === "Internal / Restricted Access" ||
-    project.url === "To be provided";
+  const hasPublicUrl =
+    !!project.url &&
+    (project.url.startsWith("http://") || project.url.startsWith("https://"));
+  const isInternalSystem = project.url === "Internal / Restricted Access";
 
   return (
     <div className="min-h-screen bg-white">
@@ -118,7 +120,7 @@ export default async function ProjectPage({ params }: PageProps) {
               <Calendar size={13} className="text-[#AAAAAA]" />
               <span>{project.year}</span>
             </div>
-            {!isInternal ? (
+            {hasPublicUrl ? (
               <a
                 href={project.url}
                 target="_blank"
@@ -132,7 +134,7 @@ export default async function ProjectPage({ params }: PageProps) {
               <div className="flex items-center gap-1.5">
                 <Tag size={13} className="text-[#AAAAAA]" />
                 <span className="text-[10px] font-medium px-2.5 py-1 bg-[#F5F5F5] border border-[#E5E5E5] rounded-full text-[#888888] tracking-wide">
-                  {project.url === "Internal / Restricted Access" ? "Internal System" : "Link coming soon"}
+                  {isInternalSystem ? "Internal System" : "Link coming soon"}
                 </span>
               </div>
             )}
@@ -186,17 +188,11 @@ export default async function ProjectPage({ params }: PageProps) {
               ))}
             </div>
 
-            {/* Visual placeholder */}
-            <div className="bg-[#F5F5F5] border border-[#E5E5E5] rounded-2xl p-5 aspect-video flex items-center justify-center">
-              <div className="text-center">
-                <div className="w-8 h-8 rounded-lg bg-[#E5E5E5] flex items-center justify-center mx-auto mb-2">
-                  <div className="w-4 h-3 bg-[#CCCCCC] rounded-sm" />
-                </div>
-                <p className="text-[10px] text-[#BBBBBB] tracking-wide">
-                  Preview coming soon
-                </p>
-              </div>
-            </div>
+            {/* Project image */}
+            <ProjectImage
+              src={project.image}
+              alt={`${project.title} screenshot`}
+            />
 
             {/* CTA */}
             <div className="bg-[#111111] rounded-2xl p-5 text-white">

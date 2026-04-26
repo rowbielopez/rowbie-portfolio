@@ -12,12 +12,28 @@ const techGroups = [
   {
     label: "Build Interfaces",
     icon: Layers,
-    items: ["HTML", "CSS", "JavaScript", "TypeScript", "Tailwind CSS", "Bootstrap", "shadcn/ui"],
+    items: [
+      "HTML",
+      "CSS",
+      "JavaScript",
+      "TypeScript",
+      "Tailwind CSS",
+      "Bootstrap",
+      "shadcn/ui",
+    ],
   },
   {
     label: "Develop Systems",
     icon: Database,
-    items: ["PHP", "Laravel", "Next.js", "MySQL", "PostgreSQL", "Supabase", "Firebase"],
+    items: [
+      "PHP",
+      "Laravel",
+      "Next.js",
+      "MySQL",
+      "PostgreSQL",
+      "Supabase",
+      "Firebase",
+    ],
   },
   {
     label: "Deploy & Maintain",
@@ -70,7 +86,9 @@ export default function TechStack() {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
           {techGroups.map((group, groupIndex) => {
             const GroupIcon = group.icon;
-            const isLastOdd = groupIndex === techGroups.length - 1 && techGroups.length % 3 !== 0;
+            const isLastOdd =
+              groupIndex === techGroups.length - 1 &&
+              techGroups.length % 3 !== 0;
             return (
               <motion.div
                 key={group.label}

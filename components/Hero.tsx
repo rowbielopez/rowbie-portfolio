@@ -117,8 +117,6 @@ export default function Hero() {
                 <Mail size={14} />
                 Contact Me
               </motion.button>
-
-
             </motion.div>
 
             {/* Stats */}
@@ -158,15 +156,20 @@ export default function Hero() {
             transition={{ duration: 0.65, delay: 0.28 }}
             className="hidden lg:flex justify-center lg:justify-end self-center"
           >
-            <Image
-              src="/rowbie.png"
-              alt="Rowbie Lopez, MIT, LPT — ICT Educator and Web Systems Developer"
-              width={340}
-              height={480}
-              className="object-contain w-72 xl:w-[340px] h-auto"
-              priority
-              quality={100}
-            />
+            <motion.div
+              whileHover={{ scale: 1.03 }}
+              transition={{ duration: 0.35, ease: "easeOut" }}
+            >
+              <Image
+                src="/rowbie.png"
+                alt="Rowbie Lopez, MIT, LPT — ICT Educator and Web Systems Developer"
+                width={272}
+                height={384}
+                className="object-contain w-[230px] xl:w-[272px] h-auto"
+                priority
+                quality={100}
+              />
+            </motion.div>
           </motion.div>
         </div>
       </div>

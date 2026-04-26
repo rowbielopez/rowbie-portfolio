@@ -1,7 +1,20 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { Play, BookOpen, Shield, Cpu, Zap, ExternalLink } from "lucide-react";
+import { Play, BookOpen, Shield, Cpu, Zap } from "lucide-react";
+
+const FacebookIcon = () => (
+  <svg
+    width="14"
+    height="14"
+    viewBox="0 0 24 24"
+    fill="currentColor"
+    xmlns="http://www.w3.org/2000/svg"
+    aria-hidden="true"
+  >
+    <path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z" />
+  </svg>
+);
 
 const contentPillars = [
   { icon: Cpu, label: "Technology Tips" },
@@ -60,7 +73,7 @@ export default function RobTechJourney() {
 
             <div className="flex items-center gap-3">
               <motion.a
-                href="https://robtechjourney.com"
+                href="https://www.facebook.com/RobsTechJourney"
                 target="_blank"
                 rel="noopener noreferrer"
                 whileHover={{ scale: 1.03, y: -1 }}
@@ -68,10 +81,9 @@ export default function RobTechJourney() {
                 transition={{ duration: 0.15 }}
                 className="inline-flex items-center gap-2 px-5 py-2.5 bg-white text-[#111111] text-sm font-semibold rounded-lg hover:bg-[#F5F5F5] transition-colors"
               >
-                <ExternalLink size={14} />
+                <FacebookIcon />
                 Visit RobTech Journey
               </motion.a>
-
             </div>
           </motion.div>
 

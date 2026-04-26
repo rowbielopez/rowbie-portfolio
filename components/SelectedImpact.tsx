@@ -38,7 +38,11 @@ const impactCards = [
 
 const cardVariants: Variants = {
   hidden: { opacity: 0, y: 18 },
-  visible: { opacity: 1, y: 0, transition: { duration: 0.45, ease: "easeOut" } },
+  visible: {
+    opacity: 1,
+    y: 0,
+    transition: { duration: 0.45, ease: "easeOut" },
+  },
 };
 
 export default function SelectedImpact() {
@@ -58,7 +62,8 @@ export default function SelectedImpact() {
             Selected Impact
           </h2>
           <p className="mt-8 text-[#666666] max-w-xl">
-            A decade of work across ICT education, university systems, EdTech, and digital content creation.
+            A decade of work across ICT education, university systems, EdTech,
+            and digital content creation.
           </p>
         </motion.div>
 
@@ -90,16 +95,24 @@ export default function SelectedImpact() {
                     <Icon size={17} className="text-white" />
                   </div>
                   <div className="text-right">
-                    <p className="text-lg font-bold text-[#111111] leading-none">{card.stat}</p>
-                    <p className="text-[10px] text-[#AAAAAA] mt-0.5 tracking-wide">{card.statLabel}</p>
+                    <p className="text-lg font-bold text-[#111111] leading-none">
+                      {card.stat}
+                    </p>
+                    <p className="text-[10px] text-[#AAAAAA] mt-0.5 tracking-wide">
+                      {card.statLabel}
+                    </p>
                   </div>
                 </div>
 
                 {/* Title */}
                 <div>
                   <div className="h-px w-8 bg-[#111111] mb-3 group-hover:w-12 transition-all duration-300" />
-                  <h3 className="text-sm font-bold text-[#111111] mb-2">{card.title}</h3>
-                  <p className="text-xs text-[#666666] leading-relaxed">{card.body}</p>
+                  <h3 className="text-sm font-bold text-[#111111] mb-2">
+                    {card.title}
+                  </h3>
+                  <p className="text-xs text-[#666666] leading-relaxed">
+                    {card.body}
+                  </p>
                 </div>
               </motion.div>
             );

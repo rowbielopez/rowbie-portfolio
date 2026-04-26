@@ -10,49 +10,59 @@ import {
   Globe,
   Video,
 } from "lucide-react";
-import { staggerContainer, fadeUp, VIEWPORT } from "@/components/motion/variants";
+import {
+  staggerContainer,
+  fadeUp,
+  VIEWPORT,
+} from "@/components/motion/variants";
 import { type Variants } from "framer-motion";
 
 const opportunities = [
   {
     icon: Monitor,
     title: "Full-Time Remote Web/System Development",
-    summary: "Open to full-time remote roles in web and information systems development.",
+    summary:
+      "Open to full-time remote roles in web and information systems development.",
     detail:
       "Available for senior developer, systems analyst, or project lead roles with organizations building meaningful web-based platforms, particularly in the education or public sector.",
   },
   {
     icon: BookOpen,
     title: "ICT Training and Workshops",
-    summary: "Conducting practical ICT training for educators and institutions.",
+    summary:
+      "Conducting practical ICT training for educators and institutions.",
     detail:
       "Available for in-person or online ICT workshops, digital literacy training, productivity seminars, and software application training for academic or government institutions.",
   },
   {
     icon: Building2,
     title: "University Digital Transformation Consulting",
-    summary: "Helping universities modernize administrative and academic systems.",
+    summary:
+      "Helping universities modernize administrative and academic systems.",
     detail:
       "Available for consulting on university digital transformation strategies, information system design, workflow digitization, and institutional technology planning.",
   },
   {
     icon: FlaskConical,
     title: "EdTech Product Collaboration",
-    summary: "Collaborating with EdTech teams building classroom or learning tools.",
+    summary:
+      "Collaborating with EdTech teams building classroom or learning tools.",
     detail:
       "Open to co-founding or joining EdTech projects that build practical tools for teachers, students, and schools — especially tools grounded in real classroom experience.",
   },
   {
     icon: Globe,
     title: "Website and Internal System Improvement",
-    summary: "Upgrading or redesigning existing institutional websites and portals.",
+    summary:
+      "Upgrading or redesigning existing institutional websites and portals.",
     detail:
       "Available for UI/UX improvements, system audits, performance upgrades, and modernization of legacy institutional platforms.",
   },
   {
     icon: Video,
     title: "Content and Multimedia Support",
-    summary: "Producing ICT content, digital guides, and educational multimedia.",
+    summary:
+      "Producing ICT content, digital guides, and educational multimedia.",
     detail:
       "Available for educational content creation, ICT tutorial development, digital graphic design, and video production for institutional or training purposes.",
   },
@@ -82,8 +92,8 @@ export default function AvailableFor() {
             Available For
           </h2>
           <p className="mt-8 text-[#666666]">
-            I work at the intersection of ICT education, web systems, digital transformation,
-            and practical technology implementation.
+            I work at the intersection of ICT education, web systems, digital
+            transformation, and practical technology implementation.
           </p>
         </motion.div>
 
@@ -102,7 +112,15 @@ export default function AvailableFor() {
               <motion.div
                 key={item.title}
                 variants={cardVariants}
-                whileHover={!isOpen ? { y: -3, borderColor: "#CCCCCC", boxShadow: "0 8px 24px rgba(0,0,0,0.06)" } : {}}
+                whileHover={
+                  !isOpen
+                    ? {
+                        y: -3,
+                        borderColor: "#CCCCCC",
+                        boxShadow: "0 8px 24px rgba(0,0,0,0.06)",
+                      }
+                    : {}
+                }
                 transition={{ duration: 0.2, ease: "easeOut" }}
                 className={`group bg-white border rounded-2xl p-5 cursor-pointer transition-colors duration-200 ${
                   isOpen ? "border-[#111111]" : "border-[#E5E5E5]"

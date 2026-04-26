@@ -29,14 +29,20 @@ export default function About() {
             {/* Photo */}
             <div className="relative w-full max-w-sm mx-auto lg:mx-0">
               <div className="aspect-[4/5] rounded-xl overflow-hidden bg-[#F5F5F5]">
-                <Image
-                  src="/me2.png"
-                  alt="Rowbie Lopez — ICT Educator and Web Systems Developer"
-                  fill
-                  className="object-cover object-top"
-                  sizes="(max-width: 1024px) 100vw, 384px"
-                  quality={100}
-                />
+                <motion.div
+                  className="relative w-full h-full"
+                  whileHover={{ scale: 1.03 }}
+                  transition={{ duration: 0.35, ease: "easeOut" }}
+                >
+                  <Image
+                    src="/me2.png"
+                    alt="Rowbie Lopez — ICT Educator and Web Systems Developer"
+                    fill
+                    className="object-cover object-top"
+                    sizes="(max-width: 1024px) 100vw, 384px"
+                    quality={100}
+                  />
+                </motion.div>
               </div>
 
               {/* Licensed badge */}
@@ -86,12 +92,17 @@ export default function About() {
             <div className="space-y-4 text-[#555555] leading-relaxed mt-4">
               <p>
                 ICT Instructor and Web/Information Systems Developer at{" "}
-                <strong className="text-[#111111]">Cagayan State University</strong>{" "}
+                <strong className="text-[#111111]">
+                  Cagayan State University
+                </strong>{" "}
                 — dual role as{" "}
                 <strong className="text-[#111111]">Instructor III</strong> and{" "}
-                <strong className="text-[#111111]">University Senior Programmer</strong>{" "}
-                at the MIS Office. Over a decade of experience spanning ICT education,
-                university systems development, and digital transformation.
+                <strong className="text-[#111111]">
+                  University Senior Programmer
+                </strong>{" "}
+                at the MIS Office. Over a decade of experience spanning ICT
+                education, university systems development, and digital
+                transformation.
               </p>
             </div>
 
