@@ -1,0 +1,11 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(npx tsc *)",
+      "Bash(node -e \"const lr = require\\('lucide-react'\\); console.log\\(Object.keys\\(lr\\).filter\\(k => k.toLowerCase\\(\\).includes\\('github'\\) || k.toLowerCase\\(\\).includes\\('linked'\\) || k.toLowerCase\\(\\).includes\\('link'\\)\\).slice\\(0, 20\\)\\)\")",
+      "Bash(node -e \"const fm = require\\('framer-motion'\\); console.log\\(typeof fm.cubicBezier, Object.keys\\(fm\\).filter\\(k => k.toLowerCase\\(\\).includes\\('cubic'\\) || k.toLowerCase\\(\\).includes\\('easing'\\) || k.toLowerCase\\(\\).includes\\('spring'\\)\\).slice\\(0,10\\)\\)\")",
+      "Bash(npx next *)",
+      "Bash(node -e \"const fm = require\\('framer-motion'\\); console.log\\(typeof fm.useMotionTemplate, typeof fm.useReducedMotion, typeof fm.useMotionValueEvent\\)\")"
+    ]
+  }
+}
