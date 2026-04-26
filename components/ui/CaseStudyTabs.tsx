@@ -60,6 +60,16 @@ export function CaseStudyTabs({ project }: Props) {
 function OverviewTab({ project }: Props) {
   return (
     <div className="space-y-8">
+      {project.projectContext && (
+        <div className="rounded-2xl border border-[#111111] bg-white p-5">
+          <h3 className="text-xs font-bold text-[#111111] uppercase tracking-[0.1em] mb-3">
+            Project Context
+          </h3>
+          <p className="text-sm text-[#444444] leading-relaxed">
+            {project.projectContext}
+          </p>
+        </div>
+      )}
       {project.problem && (
         <div>
           <h3 className="text-xs font-bold text-[#111111] uppercase tracking-[0.1em] mb-3">
@@ -90,9 +100,11 @@ function OverviewTab({ project }: Props) {
 }
 
 function FeaturesTab({ project }: Props) {
+  const items = project.features ?? project.highlights;
+
   return (
     <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
-      {project.highlights.map((h) => (
+      {items.map((h) => (
         <div
           key={h}
           className="flex items-start gap-3 p-4 bg-[#FAFAFA] border border-[#E5E5E5] rounded-xl hover:border-[#AAAAAA] hover:bg-white transition-colors"
@@ -106,7 +118,7 @@ function FeaturesTab({ project }: Props) {
 }
 
 function ImpactTab({ project }: Props) {
-  const items = project.impact ?? project.highlights;
+  const items = project.impactStatements ?? project.impact ?? project.highlights;
   return (
     <div className="space-y-3">
       {items.map((item, i) => (
@@ -144,6 +156,43 @@ function ProcessTab({ project }: Props) {
         </div>
       )}
 
+      {project.architectureDecisions && (
+        <div>
+          <h3 className="text-xs font-bold text-[#111111] uppercase tracking-[0.1em] mb-3">
+            Architecture Decisions
+          </h3>
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
+            {project.architectureDecisions.map((item) => (
+              <div
+                key={item}
+                className="rounded-xl border border-[#E5E5E5] bg-[#FAFAFA] p-4"
+              >
+                <p className="text-sm text-[#444444] leading-relaxed">{item}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      )}
+
+      {project.keyChallenges && (
+        <div>
+          <h3 className="text-xs font-bold text-[#111111] uppercase tracking-[0.1em] mb-3">
+            Key Challenges
+          </h3>
+          <div className="space-y-2">
+            {project.keyChallenges.map((item) => (
+              <div
+                key={item}
+                className="flex items-start gap-3 rounded-xl border border-[#E5E5E5] bg-white p-4"
+              >
+                <div className="mt-1.5 h-1.5 w-1.5 shrink-0 rounded-full bg-[#111111]" />
+                <p className="text-sm text-[#444444]">{item}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      )}
+
       <div>
         <h3 className="text-xs font-bold text-[#111111] uppercase tracking-[0.1em] mb-3">
           Status
@@ -152,6 +201,24 @@ function ProcessTab({ project }: Props) {
           {project.status}
         </span>
       </div>
+
+      {project.whatsNext && (
+        <div>
+          <h3 className="text-xs font-bold text-[#111111] uppercase tracking-[0.1em] mb-3">
+            What&apos;s Next
+          </h3>
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
+            {project.whatsNext.map((item) => (
+              <div
+                key={item}
+                className="rounded-xl border border-[#E5E5E5] bg-[#FAFAFA] p-4"
+              >
+                <p className="text-sm text-[#444444]">{item}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      )}
     </div>
   );
 }

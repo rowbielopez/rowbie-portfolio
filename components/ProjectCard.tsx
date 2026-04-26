@@ -5,10 +5,12 @@ import Link from "next/link";
 import { ArrowRight, Star } from "lucide-react";
 import { motion, useMotionValue, useSpring, useTransform, useReducedMotion } from "framer-motion";
 import type { Project } from "@/data/projects";
+import { ProjectPreview } from "@/components/ui/ProjectPreview";
 
 const statusStyles: Record<string, { bg: string; text: string; border: string }> = {
   Live:              { bg: "bg-[#111111]", text: "text-white",       border: "border-transparent" },
   "Live / Prototype":{ bg: "bg-[#111111]", text: "text-white",       border: "border-transparent" },
+  "Live / Institutional System": { bg: "bg-[#111111]", text: "text-white", border: "border-transparent" },
   Active:            { bg: "bg-[#111111]", text: "text-white",       border: "border-transparent" },
   "In Development":  { bg: "bg-[#F5F5F5]", text: "text-[#111111]",  border: "border-[#E5E5E5]" },
   Prototype:         { bg: "bg-[#F5F5F5]", text: "text-[#666666]",  border: "border-[#E5E5E5]" },
@@ -76,6 +78,19 @@ export default function ProjectCard({ project }: { project: Project }) {
       ) : (
         <div className="h-0.5 bg-[#E5E5E5] group-hover:bg-[#111111] transition-colors duration-250" />
       )}
+
+      <div className="px-5 pt-5">
+        <ProjectPreview
+          title={project.title}
+          url={project.url}
+          image={project.image}
+          category={project.category}
+          status={project.status}
+          previewEnabled={project.previewEnabled}
+          previewType={project.previewType}
+          isInternal={project.isInternal}
+        />
+      </div>
 
       <div className="flex flex-col flex-1 p-6">
         {/* Badges row */}

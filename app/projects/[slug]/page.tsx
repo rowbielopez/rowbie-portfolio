@@ -8,10 +8,13 @@ import {
   Tag,
   User,
   Star,
+  LockKeyhole,
 } from "lucide-react";
-import { projects, getProjectBySlug } from "@/data/projects";
+import { projects, getProjectBySlug, isPublicUrl } from "@/data/projects";
 import { CaseStudyTabs } from "@/components/ui/CaseStudyTabs";
-import { ProjectImage } from "@/components/ui/ProjectImage";
+import { ProjectPreview } from "@/components/ui/ProjectPreview";
+import { ProjectMediaGallery } from "@/components/ui/ProjectMediaGallery";
+import { FacebookIcon, GithubIcon } from "@/components/icons/SocialIcons";
 
 interface PageProps {
   params: Promise<{ slug: string }>;
@@ -36,6 +39,7 @@ export async function generateMetadata({
 const statusStyles: Record<string, { bg: string; text: string }> = {
   Live: { bg: "bg-[#111111]", text: "text-white" },
   "Live / Prototype": { bg: "bg-[#111111]", text: "text-white" },
+  "Live / Institutional System": { bg: "bg-[#111111]", text: "text-white" },
   Active: { bg: "bg-[#111111]", text: "text-white" },
   "In Development": { bg: "bg-[#F5F5F5]", text: "text-[#111111]" },
   Prototype: { bg: "bg-[#F5F5F5]", text: "text-[#666666]" },
@@ -55,10 +59,17 @@ export default async function ProjectPage({ params }: PageProps) {
     bg: "bg-[#F5F5F5]",
     text: "text-[#666666]",
   };
-  const hasPublicUrl =
-    !!project.url &&
-    (project.url.startsWith("http://") || project.url.startsWith("https://"));
-  const isInternalSystem = project.url === "Internal / Restricted Access";
+  const hasPublicUrl = !project.isInternal && isPublicUrl(project.url);
+  const hasLiveUrl = !project.isInternal && isPublicUrl(project.liveUrl);
+  const hasRepositoryUrl = isPublicUrl(project.repositoryUrl);
+  const primaryProjectUrl = hasLiveUrl ? project.liveUrl : hasPublicUrl ? project.url : "";
+  const isFacebookUrl = !!primaryProjectUrl && primaryProjectUrl.includes("facebook.com");
+  const isCsuProject = project.category === "CSU Projects" || project.category === "CSU Project";
+  const isPrototype =
+    project.status.toLowerCase().includes("prototype") ||
+    project.status.toLowerCase().includes("development");
+  const hasMedia =
+    (project.screenshots?.length ?? 0) > 0 || !!project.demoVideoUrl;
 
   return (
     <div className="min-h-screen bg-white">
@@ -98,6 +109,11 @@ export default async function ProjectPage({ params }: PageProps) {
             >
               {project.status}
             </span>
+            {isPrototype && (
+              <span className="text-[10px] font-semibold tracking-wide uppercase px-3 py-1 rounded-full bg-white border border-[#E5E5E5] text-[#666666]">
+                Prototype / Work in Progress
+              </span>
+            )}
           </div>
 
           <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold text-[#111111] leading-tight mb-4 tracking-tight">
@@ -120,32 +136,56 @@ export default async function ProjectPage({ params }: PageProps) {
               <Calendar size={13} className="text-[#AAAAAA]" />
               <span>{project.year}</span>
             </div>
-            {hasPublicUrl ? (
+            {primaryProjectUrl ? (
               <a
-                href={project.url}
+                href={primaryProjectUrl}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="flex items-center gap-1.5 text-[#111111] font-medium hover:underline"
               >
-                <ExternalLink size={13} />
-                Visit Project
+                {isFacebookUrl ? <FacebookIcon size={13} /> : <ExternalLink size={13} />}
+                {hasLiveUrl ? "Visit Live Demo" : "Visit Project"}
               </a>
-            ) : (
+            ) : project.isInternal ? (
+              <div className="flex items-center gap-1.5">
+                <LockKeyhole size={13} className="text-[#AAAAAA]" />
+                <span className="text-[10px] font-medium px-2.5 py-1 bg-[#F5F5F5] border border-[#E5E5E5] rounded-full text-[#888888] tracking-wide">
+                  Internal / Restricted Access
+                </span>
+              </div>
+            ) : !isCsuProject ? (
               <div className="flex items-center gap-1.5">
                 <Tag size={13} className="text-[#AAAAAA]" />
                 <span className="text-[10px] font-medium px-2.5 py-1 bg-[#F5F5F5] border border-[#E5E5E5] rounded-full text-[#888888] tracking-wide">
-                  {isInternalSystem ? "Internal System" : "Link coming soon"}
+                  Link coming soon
                 </span>
               </div>
+            ) : null}
+            {hasRepositoryUrl && project.repositoryUrl && (
+              <a
+                href={project.repositoryUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex items-center gap-1.5 text-[#111111] font-medium hover:underline"
+              >
+                <GithubIcon size={13} />
+                View GitHub
+              </a>
             )}
           </div>
 
-          {/* Project image — full width, prominent */}
+          {/* Project preview - full width, prominent */}
           <div className="mt-10">
-            <ProjectImage
-              src={project.image}
-              alt={`${project.title} — project screenshot`}
-              full
+            <ProjectPreview
+              title={project.title}
+              url={project.url}
+              image={project.image}
+              category={project.category}
+              status={project.status}
+              previewEnabled={project.previewEnabled}
+              previewType={project.previewType}
+              isInternal={project.isInternal}
+              variant="hero"
             />
           </div>
         </div>
@@ -157,6 +197,15 @@ export default async function ProjectPage({ params }: PageProps) {
           {/* Left: Case study tabs */}
           <div>
             <CaseStudyTabs project={project} />
+            {(!isCsuProject || hasMedia) && (
+              <ProjectMediaGallery
+                title={project.title}
+                projectCategory={project.category}
+                screenshots={project.screenshots}
+                demoVideoUrl={project.demoVideoUrl}
+                demoVideoType={project.demoVideoType}
+              />
+            )}
           </div>
 
           {/* Right: Sidebar */}

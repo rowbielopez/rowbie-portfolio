@@ -1,70 +1,38 @@
 "use client";
 
 import { useState } from "react";
-import { motion, AnimatePresence } from "framer-motion";
-import {
-  Monitor,
-  BookOpen,
-  Building2,
-  FlaskConical,
-  Globe,
-  Video,
-} from "lucide-react";
+import { motion, AnimatePresence, type Variants } from "framer-motion";
+import { BookOpen, FlaskConical, Monitor } from "lucide-react";
 import {
   staggerContainer,
   fadeUp,
   VIEWPORT,
 } from "@/components/motion/variants";
-import { type Variants } from "framer-motion";
 
 const opportunities = [
   {
     icon: Monitor,
-    title: "Full-Time Remote Web/System Development",
+    title: "Web & Information Systems Development",
     summary:
-      "Open to full-time remote roles in web and information systems development.",
+      "Building practical web-based systems, portals, dashboards, and database-driven platforms.",
     detail:
-      "Available for senior developer, systems analyst, or project lead roles with organizations building meaningful web-based platforms, particularly in the education or public sector.",
+      "Focused on institutional and organizational workflows, including internal tools, reporting dashboards, data-backed portals, and system improvements that make operations easier to manage.",
   },
   {
     icon: BookOpen,
-    title: "ICT Training and Workshops",
+    title: "ICT Training & Workshops",
     summary:
-      "Conducting practical ICT training for educators and institutions.",
+      "Delivering practical ICT training for educators, students, teams, and institutions.",
     detail:
-      "Available for in-person or online ICT workshops, digital literacy training, productivity seminars, and software application training for academic or government institutions.",
-  },
-  {
-    icon: Building2,
-    title: "University Digital Transformation Consulting",
-    summary:
-      "Helping universities modernize administrative and academic systems.",
-    detail:
-      "Available for consulting on university digital transformation strategies, information system design, workflow digitization, and institutional technology planning.",
+      "Training topics include digital literacy, educational technology, web fundamentals, cybersecurity awareness, productivity tools, and practical technology use.",
   },
   {
     icon: FlaskConical,
     title: "EdTech Product Collaboration",
     summary:
-      "Collaborating with EdTech teams building classroom or learning tools.",
+      "Designing and improving education-focused tools grounded in real classroom needs.",
     detail:
-      "Open to co-founding or joining EdTech projects that build practical tools for teachers, students, and schools — especially tools grounded in real classroom experience.",
-  },
-  {
-    icon: Globe,
-    title: "Website and Internal System Improvement",
-    summary:
-      "Upgrading or redesigning existing institutional websites and portals.",
-    detail:
-      "Available for UI/UX improvements, system audits, performance upgrades, and modernization of legacy institutional platforms.",
-  },
-  {
-    icon: Video,
-    title: "Content and Multimedia Support",
-    summary:
-      "Producing ICT content, digital guides, and educational multimedia.",
-    detail:
-      "Available for educational content creation, ICT tutorial development, digital graphic design, and video production for institutional or training purposes.",
+      "Open to collaborations around classroom management, learner support, teacher workflows, and digital products that help make education work better in practice.",
   },
 ];
 
@@ -79,7 +47,6 @@ export default function AvailableFor() {
   return (
     <section id="available" className="section-padding bg-[#F5F5F5]">
       <div className="container-wide">
-        {/* Header */}
         <motion.div
           initial="hidden"
           whileInView="visible"
@@ -92,18 +59,17 @@ export default function AvailableFor() {
             Available For
           </h2>
           <p className="mt-8 text-[#666666]">
-            I work at the intersection of ICT education, web systems, digital
-            transformation, and practical technology implementation.
+            I focus on practical systems, ICT capability-building, and EdTech
+            tools that support real institutional and classroom workflows.
           </p>
         </motion.div>
 
-        {/* Cards */}
         <motion.div
           variants={staggerContainer}
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true, margin: "-40px" }}
-          className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4"
+          className="grid grid-cols-1 md:grid-cols-3 gap-4"
         >
           {opportunities.map((item, i) => {
             const Icon = item.icon;
@@ -112,22 +78,17 @@ export default function AvailableFor() {
               <motion.div
                 key={item.title}
                 variants={cardVariants}
-                whileHover={
-                  !isOpen
-                    ? {
-                        y: -3,
-                        borderColor: "#CCCCCC",
-                        boxShadow: "0 8px 24px rgba(0,0,0,0.06)",
-                      }
-                    : {}
-                }
+                whileHover={{
+                  y: -3,
+                  borderColor: "#CCCCCC",
+                  boxShadow: "0 8px 24px rgba(0,0,0,0.06)",
+                }}
                 transition={{ duration: 0.2, ease: "easeOut" }}
                 className={`group bg-white border rounded-2xl p-5 cursor-pointer transition-colors duration-200 ${
                   isOpen ? "border-[#111111]" : "border-[#E5E5E5]"
                 }`}
                 onClick={() => setExpanded(isOpen ? null : i)}
               >
-                {/* Icon row */}
                 <div className="flex items-start justify-between mb-3">
                   <div
                     className={`w-9 h-9 rounded-xl flex items-center justify-center shrink-0 transition-colors ${
@@ -151,11 +112,10 @@ export default function AvailableFor() {
                 <h3 className="text-sm font-semibold text-[#111111] mb-1.5 leading-snug">
                   {item.title}
                 </h3>
-                <p className="text-xs text-[#888888] leading-relaxed mb-0">
+                <p className="text-xs text-[#888888] leading-relaxed">
                   {item.summary}
                 </p>
 
-                {/* Expandable detail */}
                 <AnimatePresence initial={false}>
                   {isOpen && (
                     <motion.div

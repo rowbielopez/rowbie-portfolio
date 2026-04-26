@@ -3,9 +3,9 @@
 import { useCallback, useRef } from "react";
 import Image from "next/image";
 import { motion } from "framer-motion";
-import { ArrowDown, Mail, ChevronRight } from "lucide-react";
+import { ArrowDown, Download, Mail, ChevronRight } from "lucide-react";
 
-export default function Hero() {
+export default function Hero({ showCv = false }: { showCv?: boolean }) {
   const heroRef = useRef<HTMLElement>(null);
   const spotlightRef = useRef<HTMLDivElement>(null);
 
@@ -117,6 +117,21 @@ export default function Hero() {
                 <Mail size={14} />
                 Contact Me
               </motion.button>
+
+              {showCv && (
+                <motion.a
+                  href="/resume.pdf"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  whileHover={{ scale: 1.02 }}
+                  whileTap={{ scale: 0.98 }}
+                  transition={{ duration: 0.15 }}
+                  className="inline-flex items-center gap-2 px-5 py-3 text-[#111111] text-sm font-semibold rounded-lg border border-[#E5E5E5] hover:border-[#AAAAAA] hover:bg-[#FAFAFA] transition-colors"
+                >
+                  <Download size={14} />
+                  Download CV
+                </motion.a>
+              )}
             </motion.div>
 
             {/* Stats */}

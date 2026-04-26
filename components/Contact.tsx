@@ -1,7 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { Mail, MapPin, Globe, ArrowRight } from "lucide-react";
+import { Download, Mail, MapPin, Globe, ArrowRight } from "lucide-react";
 import { GithubIcon, LinkedinIcon } from "@/components/icons/SocialIcons";
 
 const contactLinks = [
@@ -29,9 +29,9 @@ const contactLinks = [
   {
     icon: "github" as const,
     label: "GitHub",
-    value: "github.com/rowbielopez",
-    href: "https://github.com/rowbielopez",
-    description: "Code and projects",
+    value: "GitHub coming soon",
+    href: null,
+    description: "Public repositories",
   },
   {
     icon: "map" as const,
@@ -54,6 +54,8 @@ function IconComponent({
   switch (type) {
     case "mail":
       return <Mail size={size} className={className} />;
+    case "download":
+      return <Download size={size} className={className} />;
     case "linkedin":
       return <LinkedinIcon size={size} className={className} />;
     case "globe":
@@ -67,7 +69,20 @@ function IconComponent({
   }
 }
 
-export default function Contact() {
+export default function Contact({ showCv = false }: { showCv?: boolean }) {
+  const links = showCv
+    ? [
+        ...contactLinks,
+        {
+          icon: "download" as const,
+          label: "Download CV",
+          value: "Download CV",
+          href: "/resume.pdf",
+          description: "Resume / CV",
+        },
+      ]
+    : contactLinks;
+
   return (
     <section id="contact" className="section-padding bg-[#111111] text-white">
       <div className="container-wide">
@@ -123,14 +138,14 @@ export default function Contact() {
             transition={{ duration: 0.6, delay: 0.1 }}
             className="space-y-2.5"
           >
-            {contactLinks.map(({ icon, label, value, href, description }) => (
+            {links.map(({ icon, label, value, href, description }) => (
               <div key={label}>
                 {href ? (
                   <motion.a
                     href={href}
-                    target={href.startsWith("http") ? "_blank" : undefined}
+                    target={href.startsWith("http") || href.endsWith(".pdf") ? "_blank" : undefined}
                     rel={
-                      href.startsWith("http")
+                      href.startsWith("http") || href.endsWith(".pdf")
                         ? "noopener noreferrer"
                         : undefined
                     }

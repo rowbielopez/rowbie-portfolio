@@ -5,33 +5,45 @@ export interface Project {
   shortDescription: string;
   fullDescription: string;
   role: string;
+  features?: string[];
+  impactStatements?: string[];
   technologies: string[];
   status: string;
   year: string;
   url: string;
+  liveUrl?: string;
+  repositoryUrl?: string;
+  previewEnabled: boolean;
+  previewType: "screenshot" | "og" | "manual";
+  isInternal: boolean;
   featured: boolean;
   /** Visually highlighted as the flagship project */
   highlight?: boolean;
   highlights: string[];
-  /** Project screenshot / mockup — relative path from public/ */
-  image?: string;
-  /** Extended case study fields — optional */
+  /** Project screenshot / mockup - relative path from public/ */
+  image: string;
+  screenshots?: string[];
+  demoVideoUrl?: string;
+  demoVideoType?: "youtube" | "loom" | "mp4" | "external";
+  /** Extended case study fields - optional */
   problem?: string;
   solution?: string;
   impact?: string[];
   targetUsers?: string;
   lessons?: string;
+  projectContext?: string;
+  architectureDecisions?: string[];
+  keyChallenges?: string[];
+  whatsNext?: string[];
 }
 
 export const projects: Project[] = [
-  /* ─────────────────────────────────────────
-     PERSONAL PROJECTS — Athena first (featured)
-  ───────────────────────────────────────── */
+  // PERSONAL PROJECTS - Athena first (featured)
   {
     title: "Athena Classroom",
     slug: "athena-classroom",
     category: "Personal Projects",
-    image: "/projects/athena-classroom.png",
+    image: "/projects/athena-classroom1.png",
     shortDescription:
       "An EdTech classroom management platform designed to help teachers organize classes, attendance, quizzes, gradebooks, lesson planning, and student performance in one workspace.",
     fullDescription:
@@ -39,8 +51,13 @@ export const projects: Project[] = [
     role: "Founder / Product Owner / System Planner",
     technologies: ["Next.js", "TypeScript", "Supabase", "Tailwind CSS"],
     status: "In Development",
-    year: "2024–Present",
-    url: "To be provided",
+    year: "2024-Present",
+    url: "https://athenaclassroom.app",
+    liveUrl: "https://athenaclassroom.app",
+    repositoryUrl: "",
+    previewEnabled: true,
+    previewType: "manual",
+    isInternal: false,
     featured: true,
     highlight: true,
     highlights: [
@@ -51,8 +68,53 @@ export const projects: Project[] = [
       "Lesson planning support",
       "Teacher dashboard",
     ],
+    features: [
+      "Class and student management",
+      "Attendance monitoring and tracking",
+      "Quiz and assessment tools",
+      "Gradebook and performance monitoring",
+      "Lesson planning support",
+      "Teacher dashboard",
+    ],
+    screenshots: [
+      "/projects/athena-classroom1.png",
+      "/projects/athena-classroom2.png",
+      "/projects/athena-classroom3.png",
+      "/projects/athena-classroom4.png",
+      "/projects/athena-classroom5.png",
+    ],
+    impactStatements: [
+      "Reduces repetitive teacher administrative work.",
+      "Organizes class records in one practical workspace.",
+      "Helps teachers monitor learners more clearly.",
+      "Supports practical ICT use in teaching workflows.",
+    ],
+    projectContext:
+      "Athena Classroom is built from my combined experience as an ICT educator and systems developer, shaped by real classroom workflows and the operational needs of teachers.",
+    architectureDecisions: [
+      "Modular feature-based structure for classroom tools.",
+      "Teacher-first workflow designed around daily classroom tasks.",
+      "Mobile-friendly experience for classroom and on-the-go use.",
+      "Scalable data model for classes, students, quizzes, attendance, and gradebook records.",
+      "Clean separation between classroom tools and reporting features.",
+      "Prepared for future enhancements without overcomplicating the current experience.",
+    ],
+    keyChallenges: [
+      "Reducing teacher workload without making the UI complicated.",
+      "Balancing feature depth with simplicity.",
+      "Designing for mobile-first classroom use.",
+      "Keeping data organized across classes and grading periods.",
+      "Making tools approachable for non-technical users.",
+    ],
+    whatsNext: [
+      "Stronger analytics for student performance.",
+      "Improved quiz experience.",
+      "Better lesson planning workflow.",
+      "Export and reporting tools.",
+      "Optional AI-supported teaching assistance in future versions.",
+    ],
     problem:
-      "Teachers often manage classroom records, attendance, quizzes, lesson planning, and student performance using separate tools or manual processes. This becomes time-consuming, repetitive, and difficult to organize — especially when handling multiple classes.",
+      "Teachers often manage classroom records, attendance, quizzes, lesson planning, and student performance using separate tools or manual processes. This becomes time-consuming, repetitive, and difficult to organize - especially when handling multiple classes.",
     solution:
       "Athena Classroom brings essential classroom management tools into a single digital platform. It is designed to help teachers save time, organize records, monitor learners, and simplify teaching-related workflows through a clean and practical interface.",
     impact: [
@@ -65,17 +127,17 @@ export const projects: Project[] = [
     targetUsers:
       "Teachers and educators managing multiple classes, particularly in Philippine academic institutions.",
     lessons:
-      "Building Athena Classroom has helped me connect my teaching experience with systems development. EdTech should not only look modern — it should solve real problems for teachers and learners.",
+      "Building Athena Classroom has helped me connect my teaching experience with systems development. EdTech should not only look modern - it should solve real problems for teachers and learners.",
   },
   {
     title: "SIPLocator",
     slug: "siplocator",
     category: "Personal Projects",
-    image: "/projects/siplocator.png",
+    image: "/projects/siplocator1.png",
     shortDescription:
       "Coffee shop locator and discovery platform helping users find nearby coffee shops, explore store details, view operating hours, and support local business visibility.",
     fullDescription:
-      "SIPLocator is a coffee shop discovery platform that connects coffee enthusiasts with local shops. Users can find nearby coffee shops, explore store details, view menus and operating hours, and discover new spots — while helping local coffee businesses in the Philippines gain digital visibility and attract new customers.",
+      "SIPLocator is a coffee shop discovery platform that connects coffee enthusiasts with local shops. Users can find nearby coffee shops, explore store details, view menus and operating hours, and discover new spots - while helping local coffee businesses in the Philippines gain digital visibility and attract new customers.",
     role: "Founder / Product Owner",
     technologies: [
       "Next.js",
@@ -85,8 +147,13 @@ export const projects: Project[] = [
       "Tailwind CSS",
     ],
     status: "Prototype",
-    year: "2024–Present",
-    url: "To be provided",
+    year: "2024-Present",
+    url: "https://siplocator.com",
+    liveUrl: "https://siplocator.com",
+    repositoryUrl: "",
+    previewEnabled: true,
+    previewType: "manual",
+    isInternal: false,
     featured: false,
     highlights: [
       "Map-based coffee shop discovery and locator",
@@ -94,10 +161,22 @@ export const projects: Project[] = [
       "Local business digital visibility support",
       "User reviews and discovery features",
     ],
+    screenshots: [
+      "/projects/siplocator1.png",
+      "/projects/siplocator2.png",
+      "/projects/siplocator3.png",
+      "/projects/siplocator4.png",
+      "/projects/siplocator5.png",
+    ],
+    impactStatements: [
+      "Supports local business digital visibility.",
+      "Helps users discover nearby coffee shops more easily.",
+      "Creates a focused discovery workflow for community-based commerce.",
+    ],
     problem:
       "Local coffee shops in the Philippines often lack a centralized digital presence, making it difficult for customers to discover them, check operating hours, or view menus online.",
     solution:
-      "SIPLocator provides a map-based discovery platform where users can find nearby coffee shops, view store details, and explore menus in one place — while helping local businesses gain digital visibility.",
+      "SIPLocator provides a map-based discovery platform where users can find nearby coffee shops, view store details, and explore menus in one place - while helping local businesses gain digital visibility.",
     targetUsers:
       "Coffee enthusiasts, local customers, and small coffee shop owners in the Philippines.",
     impact: [
@@ -110,16 +189,21 @@ export const projects: Project[] = [
     title: "Framify",
     slug: "framify",
     category: "Personal Projects",
-    image: "/projects/framify.png",
+    image: "/projects/framify1.png",
     shortDescription:
       "Web-based frame generation platform for event frames, campaign frames, profile frames, and social media-ready designs.",
     fullDescription:
-      "Framify is a web-based platform for creating and generating digital frames for social media, events, and campaigns. Users can create event frames, campaign overlays, profile photo frames, and social media-ready designs — making it easy to produce branded digital content for organizations, advocates, and individuals.",
+      "Framify is a web-based platform for creating and generating digital frames for social media, events, and campaigns. Users can create event frames, campaign overlays, profile photo frames, and social media-ready designs - making it easy to produce branded digital content for organizations, advocates, and individuals.",
     role: "Founder / Product Owner",
     technologies: ["Next.js", "TypeScript", "Canvas API", "Tailwind CSS"],
     status: "Live / Prototype",
-    year: "2024–Present",
-    url: "To be provided",
+    year: "2024-Present",
+    url: "https://framify-pi.vercel.app",
+    liveUrl: "https://framify-pi.vercel.app",
+    repositoryUrl: "",
+    previewEnabled: true,
+    previewType: "manual",
+    isInternal: false,
     featured: false,
     highlights: [
       "Event and campaign frame generation",
@@ -127,10 +211,21 @@ export const projects: Project[] = [
       "Social media-ready digital design output",
       "Organizational branding overlay support",
     ],
+    screenshots: [
+      "/projects/framify1.png",
+      "/projects/framify2.png",
+      "/projects/framify3.png",
+      "/projects/framify4.png",
+    ],
+    impactStatements: [
+      "Simplifies branded content creation for non-designers.",
+      "Helps organizations prepare social media-ready campaign visuals.",
+      "Supports advocacy and event communication workflows.",
+    ],
     problem:
       "Creating branded digital frames for events, campaigns, and social media requires design skills or expensive tools that most organizations, schools, and advocacy groups do not have access to.",
     solution:
-      "Framify provides a simple browser-based tool that lets anyone create custom event frames, campaign overlays, and profile photo borders without design software — producing social media-ready output in seconds.",
+      "Framify provides a simple browser-based tool that lets anyone create custom event frames, campaign overlays, and profile photo borders without design software - producing social media-ready output in seconds.",
     targetUsers:
       "Organizations, advocacy groups, event organizers, and individuals who need branded digital frames without needing design expertise.",
     impact: [
@@ -139,48 +234,7 @@ export const projects: Project[] = [
       "Supports advocacy and event campaigns",
     ],
   },
-  {
-    title: "RobTech Journey",
-    slug: "robtech-journey",
-    category: "Personal Projects",
-    image: "/projects/robtech-journey.png",
-    shortDescription:
-      "ICT-focused content platform sharing technology tips, digital tools, productivity workflows, programming concepts, cybersecurity basics, and practical ICT knowledge.",
-    fullDescription:
-      "RobTech Journey is an ICT content platform and advocacy initiative founded by Rowbie Lopez. It focuses on sharing practical technology knowledge, digital tools, productivity workflows, programming concepts, and cybersecurity basics — with the goal of making ICT education more accessible and relevant for Filipino students, teachers, and professionals.",
-    role: "Founder / Content Creator",
-    technologies: [
-      "Content Creation",
-      "Video Production",
-      "Digital Tools",
-      "Social Media",
-    ],
-    status: "Active",
-    year: "Ongoing",
-    url: "https://www.facebook.com/RobsTechJourney",
-    featured: true,
-    highlights: [
-      "ICT education content and digital advocacy",
-      "Technology tips and digital productivity tools",
-      "Programming concepts for beginners and educators",
-      "Cybersecurity awareness and digital safety content",
-    ],
-    problem:
-      "Practical ICT knowledge — technology tips, programming concepts, digital productivity tools, and cybersecurity basics — is often hard to find in Filipino-contextualized, accessible formats for students and educators.",
-    solution:
-      "RobTech Journey delivers short-form content, tutorials, and digital guides tailored to Filipino learners and educators, making practical ICT knowledge accessible through social media and digital content platforms.",
-    targetUsers:
-      "Filipino students, teachers, and professionals looking for practical, accessible ICT knowledge and digital skills content.",
-    impact: [
-      "Makes ICT knowledge accessible to Filipino educators",
-      "Promotes digital literacy and awareness",
-      "Supports continuous professional development",
-    ],
-  },
-
-  /* ─────────────────────────────────────────
-     CSU PROJECTS
-  ───────────────────────────────────────── */
+  // CSU PROJECTS
   {
     title: "Cagayan State University Official Website",
     slug: "csu-official-website",
@@ -189,12 +243,15 @@ export const projects: Project[] = [
     shortDescription:
       "Official university website supporting institutional communication, public information, news publishing, announcements, academic updates, and access to university digital services.",
     fullDescription:
-      "The official Cagayan State University website serves as the primary digital presence of the institution. It supports public information dissemination, news publishing, academic announcements, transparency-related content, and access to university digital services — serving students, faculty, staff, and the general public.",
+      "The official Cagayan State University website serves as the primary digital presence of the institution. It supports public information dissemination, news publishing, academic announcements, transparency-related content, and access to university digital services - serving students, faculty, staff, and the general public.",
     role: "Systems Developer / Web Developer / MIS Office Contributor",
     technologies: ["PHP", "Laravel", "MySQL", "HTML", "CSS", "JavaScript"],
     status: "Live",
     year: "Ongoing",
     url: "To be provided",
+    previewEnabled: false,
+    previewType: "manual",
+    isInternal: false,
     featured: true,
     highlights: [
       "Institutional communication and information platform",
@@ -207,10 +264,15 @@ export const projects: Project[] = [
       "Improved institutional digital presence",
       "Supports transparency and announcements",
     ],
+    impactStatements: [
+      "Improved access to official institutional information.",
+      "Supported online publishing for news, announcements, and academic updates.",
+      "Strengthened the university's public digital presence.",
+    ],
     problem:
       "Cagayan State University needed a centralized digital platform to communicate institutional news, academic updates, and public information to students, faculty, staff, and the general public.",
     solution:
-      "The CSU Official Website provides a structured, institution-branded web presence for publishing news, announcements, academic updates, and university digital services — accessible to all stakeholders online.",
+      "The CSU Official Website provides a structured, institution-branded web presence for publishing news, announcements, academic updates, and university digital services - accessible to all stakeholders online.",
     targetUsers:
       "CSU students, faculty, staff, alumni, applicants, and the general public seeking official university information.",
   },
@@ -228,6 +290,9 @@ export const projects: Project[] = [
     status: "Live",
     year: "Ongoing",
     url: "To be provided",
+    previewEnabled: false,
+    previewType: "manual",
+    isInternal: false,
     featured: true,
     highlights: [
       "Multi-campus coverage: Andrews, Aparri, Carig, Gonzaga, Lal-lo, Lasam, Piat, Sanchez Mira, and Solana",
@@ -240,10 +305,15 @@ export const projects: Project[] = [
       "Consistent brand identity university-wide",
       "Localized access to campus information",
     ],
+    impactStatements: [
+      "Extended digital presence across multiple campus communities.",
+      "Improved access to localized campus information.",
+      "Supported consistent institutional branding across campuses.",
+    ],
     problem:
       "Individual CSU campuses lacked their own dedicated online presence, making it difficult for campus-specific audiences to find localized information, announcements, and services.",
     solution:
-      "A unified multi-campus website initiative that provides each campus with a dedicated site under a consistent institutional design — supporting localized content while maintaining university-wide brand standards.",
+      "A unified multi-campus website initiative that provides each campus with a dedicated site under a consistent institutional design - supporting localized content while maintaining university-wide brand standards.",
     targetUsers:
       "Students, faculty, staff, and community members of each individual CSU campus.",
   },
@@ -261,6 +331,9 @@ export const projects: Project[] = [
     status: "Legacy / Internal",
     year: "Past",
     url: "To be provided",
+    previewEnabled: false,
+    previewType: "manual",
+    isInternal: false,
     featured: false,
     highlights: [
       "Centralized student admission and registration access",
@@ -273,12 +346,78 @@ export const projects: Project[] = [
       "Provided digital access to academic records",
       "Improved student service delivery",
     ],
+    impactStatements: [
+      "Improved student access to online academic services.",
+      "Helped organize admission, registration, and account workflows.",
+      "Supported more accessible student-facing digital services.",
+    ],
     problem:
       "Students had to visit offices in person to access admission, registration, and enrollment-related information, creating long queues and inefficiencies in service delivery.",
     solution:
-      "The CSU Student Portal (MyPortal) provided students with online access to academic services including registration, enrollment records, and account management — reducing the need for in-person visits.",
+      "The CSU Student Portal (MyPortal) provided students with online access to academic services including registration, enrollment records, and account management - reducing the need for in-person visits.",
     targetUsers:
       "CSU students accessing admission, registration, enrollment, and account services online.",
+  },
+  {
+    title: "MyCSU SSO Portal",
+    slug: "mycsu-sso-portal",
+    category: "CSU Projects",
+    image: "/projects/mycsu-sso.png",
+    screenshots: [
+      "/projects/mycsu-sso/screenshot-1.png",
+      "/projects/mycsu-sso/screenshot-2.png",
+      "/projects/mycsu-sso/screenshot-3.png",
+    ],
+    shortDescription:
+      "A centralized login and single sign-on portal designed to provide unified access to CSU digital systems through one secure entry point.",
+    fullDescription:
+      "MyCSU SSO Portal is a centralized authentication and access gateway for Cagayan State University digital systems. It is designed to simplify how users access institutional platforms by providing a single entry point for multiple services, improving consistency, accessibility, and user experience across CSU's digital ecosystem.",
+    role: "System Planner / Web Developer / MIS Office Contributor",
+    technologies: [
+      "Web Development",
+      "Authentication",
+      "Information Systems",
+      "UI/UX",
+      "Institutional Systems",
+    ],
+    status: "Live / Institutional System",
+    year: "Ongoing",
+    url: "https://login.csu.edu.ph",
+    liveUrl: "",
+    repositoryUrl: "",
+    previewEnabled: true,
+    previewType: "manual",
+    isInternal: false,
+    featured: true,
+    highlights: [
+      "Centralized login portal",
+      "Unified access point for CSU digital systems",
+      "Clean and responsive login interface",
+      "System routing to connected CSU platforms",
+      "Institutional digital identity support",
+      "Improved user access experience",
+      "Foundation for future single sign-on integration",
+    ],
+    features: [
+      "Centralized login portal",
+      "Unified access point for CSU digital systems",
+      "Clean and responsive login interface",
+      "System routing to connected CSU platforms",
+      "Institutional digital identity support",
+      "Improved user access experience",
+      "Foundation for future single sign-on integration",
+    ],
+    impactStatements: [
+      "Simplifies access to CSU digital platforms.",
+      "Reduces confusion caused by multiple system entry points.",
+      "Supports a more unified university digital ecosystem.",
+      "Improves user experience for students, faculty, staff, and administrators.",
+      "Strengthens the foundation for future digital transformation initiatives.",
+    ],
+    problem:
+      "As the university continues to expand its digital systems, users may need to access multiple platforms with different login flows and system entry points. This can create confusion, repetitive authentication steps, and fragmented access experiences.",
+    solution:
+      "The MyCSU SSO Portal provides a unified login experience where users can access connected CSU digital systems from a centralized portal. It supports a cleaner access flow, strengthens the identity of CSU's digital ecosystem, and improves user convenience for students, employees, and system users.",
   },
   {
     title: "Enrollment-to-Employment System (E2E)",
@@ -294,6 +433,9 @@ export const projects: Project[] = [
     status: "Internal System",
     year: "Ongoing",
     url: "Internal / Restricted Access",
+    previewEnabled: false,
+    previewType: "manual",
+    isInternal: true,
     featured: true,
     highlights: [
       "End-to-end academic lifecycle management",
@@ -306,8 +448,13 @@ export const projects: Project[] = [
       "Improved institutional data tracking and reporting",
       "Connected enrollment data to graduate outcomes",
     ],
+    impactStatements: [
+      "Helped organize academic lifecycle workflows in one system.",
+      "Supported institutional data tracking and reporting needs.",
+      "Reduced fragmentation across student record processes.",
+    ],
     problem:
-      "Managing student data across the full academic lifecycle — from admission and enrollment to graduation and employment — relied on fragmented manual processes that made tracking, reporting, and data integrity difficult.",
+      "Managing student data across the full academic lifecycle - from admission and enrollment to graduation and employment - relied on fragmented manual processes that made tracking, reporting, and data integrity difficult.",
     solution:
       "The E2E System consolidates student admission, enrollment, academic records, and employment tracking into a single platform, providing the university with accurate, integrated data across the full student lifecycle.",
     targetUsers:
@@ -327,6 +474,9 @@ export const projects: Project[] = [
     status: "Internal System",
     year: "Ongoing",
     url: "Internal / Restricted Access",
+    previewEnabled: false,
+    previewType: "manual",
+    isInternal: true,
     featured: true,
     highlights: [
       "Personal Data Sheet (PDS) management",
@@ -340,8 +490,13 @@ export const projects: Project[] = [
       "Reduced manual HR paperwork",
       "Improved leave tracking accuracy and transparency",
     ],
+    impactStatements: [
+      "Helped digitize HR record-keeping and administrative workflows.",
+      "Supported more organized leave and service record management.",
+      "Reduced reliance on manual HR tracking processes.",
+    ],
     problem:
-      "HR processes at Cagayan State University relied heavily on manual paper-based record-keeping for employee data, leave requests, and service records — making it time-consuming and error-prone to maintain compliance with CSC requirements.",
+      "HR processes at Cagayan State University relied heavily on manual paper-based record-keeping for employee data, leave requests, and service records - making it time-consuming and error-prone to maintain compliance with CSC requirements.",
     solution:
       "The HRIS digitizes HR record management, leave tracking, and service documentation in a centralized web-based platform, supporting HR staff with accurate employee data management and Civil Service Commission compliance.",
     targetUsers:
@@ -361,6 +516,9 @@ export const projects: Project[] = [
     status: "Internal System",
     year: "Ongoing",
     url: "Internal / Restricted Access",
+    previewEnabled: false,
+    previewType: "manual",
+    isInternal: true,
     featured: false,
     highlights: [
       "Student and dean evaluation workflows",
@@ -374,10 +532,15 @@ export const projects: Project[] = [
       "Enabled digital evaluation summaries and reports",
       "Improved evaluation process transparency",
     ],
+    impactStatements: [
+      "Helped move faculty evaluation from paper-based to digital workflows.",
+      "Supported clearer evaluation summaries and report preparation.",
+      "Improved organization of semester-based evaluation processes.",
+    ],
     problem:
       "Faculty evaluation at CSU was conducted through paper-based forms, making it difficult to consolidate responses, generate reports, and deliver timely feedback to faculty members and administrators.",
     solution:
-      "OFES provides a digital evaluation platform where students and deans can submit evaluations online, with automatic summary generation, individual faculty reports, and PDF export — streamlining the entire evaluation process.",
+      "OFES provides a digital evaluation platform where students and deans can submit evaluations online, with automatic summary generation, individual faculty reports, and PDF export - streamlining the entire evaluation process.",
     targetUsers:
       "Students submitting evaluations, deans conducting assessments, and HR or academic administrators reviewing faculty performance reports.",
   },
@@ -395,6 +558,9 @@ export const projects: Project[] = [
     status: "Research Project",
     year: "Past",
     url: "To be provided",
+    previewEnabled: false,
+    previewType: "manual",
+    isInternal: false,
     featured: false,
     highlights: [
       "Compliance with RA 9184 and RA 12009",
@@ -407,17 +573,20 @@ export const projects: Project[] = [
       "Addressed inefficiencies in manual procurement tracking",
       "Aligned with national government procurement standards",
     ],
+    impactStatements: [
+      "Proposed a structured digital approach for procurement workflows.",
+      "Supported process visibility and auditability in procurement planning.",
+      "Aligned system design with Philippine public procurement requirements.",
+    ],
     problem:
-      "Government procurement workflows in Philippine public institutions are complex, regulation-heavy, and often managed manually — leading to inefficiencies, audit challenges, and compliance risks under RA 9184 and RA 12009.",
+      "Government procurement workflows in Philippine public institutions are complex, regulation-heavy, and often managed manually - leading to inefficiencies, audit challenges, and compliance risks under RA 9184 and RA 12009.",
     solution:
       "This research-based system concept proposes a digitized procurement workflow platform aligned with Philippine procurement law, designed to improve process transparency, auditability, and compliance tracking.",
     targetUsers:
       "Government procurement officers, BAC members, and institutional administrators in Philippine public institutions.",
   },
 
-  /* ─────────────────────────────────────────
-     ADDITIONAL CSU SYSTEMS
-  ───────────────────────────────────────── */
+  // ADDITIONAL CSU SYSTEMS
   {
     title: "Queueing Management System",
     slug: "queueing-management-system",
@@ -426,12 +595,15 @@ export const projects: Project[] = [
     shortDescription:
       "Digital queueing system supporting organized service delivery across university offices, reducing wait times and managing in-person service queues efficiently.",
     fullDescription:
-      "The CSU Queueing Management System digitizes service queue management across university offices and service areas. It assigns queue numbers, manages service windows, and provides real-time queue status updates — improving service delivery efficiency and reducing student and staff wait times.",
+      "The CSU Queueing Management System digitizes service queue management across university offices and service areas. It assigns queue numbers, manages service windows, and provides real-time queue status updates - improving service delivery efficiency and reducing student and staff wait times.",
     role: "Project Development Team Member / Systems Developer",
     technologies: ["PHP", "Laravel", "MySQL", "JavaScript", "Bootstrap"],
     status: "Internal System",
     year: "Ongoing",
     url: "Internal / Restricted Access",
+    previewEnabled: false,
+    previewType: "manual",
+    isInternal: true,
     featured: false,
     highlights: [
       "Digital queue number assignment and tracking",
@@ -440,9 +612,9 @@ export const projects: Project[] = [
       "Multi-office deployment support",
     ],
     problem:
-      "University offices handling high volumes of students and staff faced disorganized queuing, long wait times, and poor service delivery — especially during peak academic periods like enrollment.",
+      "University offices handling high volumes of students and staff faced disorganized queuing, long wait times, and poor service delivery - especially during peak academic periods like enrollment.",
     solution:
-      "A digital queueing system that assigns numbered tickets, manages service windows, and provides real-time queue tracking — bringing order, transparency, and efficiency to in-person service delivery.",
+      "A digital queueing system that assigns numbered tickets, manages service windows, and provides real-time queue tracking - bringing order, transparency, and efficiency to in-person service delivery.",
     targetUsers:
       "Students and staff visiting university offices; administrative staff managing service windows.",
     impact: [
@@ -450,174 +622,10 @@ export const projects: Project[] = [
       "Improved order and efficiency in university offices",
       "Better service delivery experience for students",
     ],
-  },
-  {
-    title: "Appointment Management System",
-    slug: "appointment-management-system",
-    category: "CSU Projects",
-    image: "/projects/appointment-management-system.png",
-    shortDescription:
-      "Online appointment scheduling system allowing students and staff to book, manage, and track appointments with university offices and services.",
-    fullDescription:
-      "The CSU Appointment Management System provides an online platform for scheduling appointments with university offices. Students and staff can book time slots, receive confirmations, and track appointment status — reducing walk-in congestion and enabling better service planning for administrative offices.",
-    role: "Project Development Team Member / Systems Developer",
-    technologies: ["PHP", "Laravel", "MySQL", "JavaScript", "Bootstrap"],
-    status: "Internal System",
-    year: "Ongoing",
-    url: "Internal / Restricted Access",
-    featured: false,
-    highlights: [
-      "Online appointment booking for university offices",
-      "Time slot management and scheduling",
-      "Appointment confirmation and status tracking",
-      "Admin dashboard for managing appointments",
-    ],
-    problem:
-      "Walk-in service visits to university offices were uncoordinated, leading to congestion, long waiting periods, and difficulty in scheduling office workloads efficiently.",
-    solution:
-      "The Appointment Management System allows students and staff to schedule visits online, receive confirmations, and track their appointment status — enabling offices to better manage their time and reduce walk-in congestion.",
-    targetUsers:
-      "Students and staff needing to schedule visits to university offices; administrative staff managing appointment calendars.",
-    impact: [
-      "Reduced uncoordinated walk-in traffic to offices",
-      "Improved scheduling and workload management for staff",
-      "More organized and predictable service delivery",
-    ],
-  },
-  {
-    title: "Alumni Database System",
-    slug: "alumni-database-system",
-    category: "CSU Projects",
-    image: "/projects/alumni-database-system.png",
-    shortDescription:
-      "Alumni records management system for tracking graduate profiles, employment status, and institutional alumni data to support university reporting and engagement.",
-    fullDescription:
-      "The CSU Alumni Database System supports the management and tracking of graduate records, employment outcomes, and alumni profiles. It provides the university with a structured data platform for alumni engagement, employment tracking, and compliance with institutional reporting requirements related to graduate outcomes.",
-    role: "Project Development Team Member / Systems Developer",
-    technologies: ["PHP", "Laravel", "MySQL", "JavaScript", "Bootstrap"],
-    status: "Internal System",
-    year: "Ongoing",
-    url: "Internal / Restricted Access",
-    featured: false,
-    highlights: [
-      "Graduate profile and records management",
-      "Employment status and outcome tracking",
-      "Alumni data search and filtering",
-      "Institutional reporting support",
-    ],
-    problem:
-      "Tracking graduate outcomes and maintaining up-to-date alumni records was done manually or not consistently — making it difficult to report employment rates and engage alumni systematically.",
-    solution:
-      "The Alumni Database System provides a centralized platform for managing graduate profiles, tracking employment outcomes, and supporting alumni engagement — improving data accuracy and institutional reporting capability.",
-    targetUsers:
-      "University alumni officers, registrars, and institutional planners managing graduate data and reporting.",
-    impact: [
-      "Centralized and accessible alumni records",
-      "Improved graduate outcome tracking and reporting",
-      "Supports institutional accreditation requirements",
-    ],
-  },
-  {
-    title: "Hotel Management System",
-    slug: "hotel-management-system",
-    category: "CSU Projects",
-    image: "/projects/hotel-management-system.png",
-    shortDescription:
-      "Internal hotel management system supporting reservations, room assignments, billing, and guest record management for a university-affiliated accommodation facility.",
-    fullDescription:
-      "An internal hotel management system developed for a university-affiliated accommodation facility. The system handles room reservations, check-in and check-out management, billing, guest records, and room assignment workflows — supporting the operational needs of the facility.",
-    role: "Systems Developer",
-    technologies: ["PHP", "MySQL", "JavaScript", "Bootstrap"],
-    status: "Internal System",
-    year: "Past",
-    url: "Internal / Restricted Access",
-    featured: false,
-    highlights: [
-      "Room reservation and availability management",
-      "Check-in and check-out workflow support",
-      "Guest records and billing management",
-      "Room assignment and status tracking",
-    ],
-    problem:
-      "Managing room reservations, guest records, and billing at the facility was handled manually, leading to booking conflicts, record-keeping gaps, and inefficient front desk operations.",
-    solution:
-      "A web-based hotel management system that digitizes reservations, guest records, and billing workflows — providing front desk staff with an organized, reliable platform for managing facility operations.",
-    targetUsers:
-      "Front desk staff and facility administrators managing reservations, guest records, and billing.",
-    impact: [
-      "Digitized reservations and guest record management",
-      "Reduced manual errors in billing and room assignments",
-      "Improved operational efficiency for facility staff",
-    ],
-  },
-
-  /* ─────────────────────────────────────────
-     ADDITIONAL PERSONAL PROJECTS
-  ───────────────────────────────────────── */
-  {
-    title: "Pancit Finder",
-    slug: "pancit-finder",
-    category: "Personal Projects",
-    image: "/projects/pancit-finder.png",
-    shortDescription:
-      "Food discovery platform for finding local Filipino pancit spots, exploring restaurant details, and supporting community-based food businesses.",
-    fullDescription:
-      "Pancit Finder is a food discovery platform focused on helping users locate local Filipino pancit restaurants and food establishments. Users can find nearby pancit spots, view restaurant details, explore menu offerings, and discover community food businesses — celebrating Filipino food culture while giving small businesses digital visibility.",
-    role: "Founder / Product Owner",
-    technologies: ["Next.js", "TypeScript", "Supabase", "Tailwind CSS"],
-    status: "Prototype",
-    year: "2024–Present",
-    url: "To be provided",
-    featured: false,
-    highlights: [
-      "Location-based pancit restaurant discovery",
-      "Restaurant details, menus, and operating hours",
-      "Community food business digital visibility",
-      "Filipino food culture discovery features",
-    ],
-    problem:
-      "Local Filipino food businesses — particularly small pancit vendors and restaurants — often lack a digital presence, making it difficult for customers to discover or find them online.",
-    solution:
-      "Pancit Finder provides a map-based food discovery platform where users can find local pancit spots and restaurants, while giving community food businesses a simple way to gain digital visibility.",
-    targetUsers:
-      "Filipinos looking to discover local pancit restaurants and food businesses near them.",
-    impact: [
-      "Promotes local Filipino food businesses and culture",
-      "Helps users discover community food spots",
-      "Supports small business digital visibility",
-    ],
-  },
-  {
-    title: "KL Auto Hub Information System",
-    slug: "kl-auto-hub",
-    category: "Personal Projects",
-    image: "/projects/kl-auto-hub.png",
-    shortDescription:
-      "Internal information system for a local automotive business, supporting inventory management, service records, customer tracking, and basic business operations.",
-    fullDescription:
-      "KL Auto Hub Information System is an internal web-based system designed for a local automotive business. It supports inventory management, vehicle service record tracking, customer management, and basic business operations — helping the business replace manual records with a structured digital platform.",
-    role: "Systems Developer",
-    technologies: ["PHP", "MySQL", "JavaScript", "Bootstrap"],
-    status: "Prototype",
-    year: "Past",
-    url: "To be provided",
-    featured: false,
-    highlights: [
-      "Vehicle inventory and parts management",
-      "Customer records and service history tracking",
-      "Service job order management",
-      "Basic business operations and reporting",
-    ],
-    problem:
-      "The automotive business managed inventory, service records, and customer information manually — making it difficult to track vehicle history, parts availability, and customer service status accurately.",
-    solution:
-      "KL Auto Hub IS provides a web-based platform to manage inventory, customer records, and service job orders digitally — replacing manual logs and improving operational accuracy for the business.",
-    targetUsers:
-      "Automotive shop staff and management tracking vehicles, parts inventory, and customer service records.",
-    impact: [
-      "Replaced manual record-keeping with digital management",
-      "Improved tracking of service records and inventory",
-      "Reduced record-keeping errors for the business",
+    impactStatements: [
+      "Helped organize in-person service queues across office workflows.",
+      "Supported more predictable service delivery for students and staff.",
+      "Reduced manual handling of queue coordination.",
     ],
   },
 ];
@@ -632,13 +640,56 @@ export function getFeaturedProjects(): Project[] {
   return projects.filter((p) => p.featured);
 }
 
-/** Returns true if the URL is a valid, publicly accessible http/https link. */
+const blockedHostnames = new Set([
+  "localhost",
+  "127.0.0.1",
+  "0.0.0.0",
+  "::1",
+]);
+
+const restrictedUrlLabels = new Set([
+  "internal / restricted access",
+  "to be provided",
+  "coming soon",
+  "",
+]);
+
+function isPrivateHostname(hostname: string): boolean {
+  const host = hostname.toLowerCase();
+  if (blockedHostnames.has(host)) return true;
+  if (host.endsWith(".local") || host.endsWith(".internal") || host.endsWith(".test")) {
+    return true;
+  }
+
+  const parts = host.split(".").map((part) => Number(part));
+  if (parts.length !== 4 || parts.some((part) => Number.isNaN(part))) {
+    return false;
+  }
+
+  const [a, b] = parts;
+  return (
+    a === 10 ||
+    (a === 172 && b >= 16 && b <= 31) ||
+    (a === 192 && b === 168) ||
+    a === 169
+  );
+}
+
+/** Returns true only for HTTPS URLs that are safe to preview publicly. */
 export function isPublicUrl(url: string | undefined | null): boolean {
   if (!url) return false;
+  if (restrictedUrlLabels.has(url.trim().toLowerCase())) return false;
+
   try {
     const u = new URL(url);
-    return u.protocol === "http:" || u.protocol === "https:";
+    return u.protocol === "https:" && !isPrivateHostname(u.hostname);
   } catch {
     return false;
   }
+}
+
+export function canPreviewProject(
+  project: Pick<Project, "url" | "previewEnabled" | "isInternal">
+): boolean {
+  return project.previewEnabled && !project.isInternal && isPublicUrl(project.url);
 }
