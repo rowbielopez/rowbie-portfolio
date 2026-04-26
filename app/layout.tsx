@@ -78,7 +78,10 @@ export default function RootLayout({
       lang="en"
       className={`${geistSans.variable} ${geistMono.variable} h-full antialiased`}
     >
-      <body className="min-h-full flex flex-col bg-white text-[#111111]">
+      <body
+        suppressHydrationWarning
+        className="min-h-full flex flex-col bg-white text-[#111111]"
+      >
         <PageLoader />
         <CursorFollower />
         {children}
