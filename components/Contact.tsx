@@ -15,15 +15,15 @@ const contactLinks = [
   {
     icon: "linkedin" as const,
     label: "LinkedIn",
-    value: "linkedin.com/in/rowbielopez",
-    href: "https://linkedin.com/in/rowbielopez",
+    value: "linkedin.com/in/rowbie-lopez-84608ab4",
+    href: "https://www.linkedin.com/in/rowbie-lopez-84608ab4",
     description: "Professional network",
   },
   {
     icon: "globe" as const,
     label: "RobTech Journey",
-    value: "robtechjourney.com",
-    href: "https://robtechjourney.com",
+    value: "facebook.com/RobsTechJourney",
+    href: "https://www.facebook.com/RobsTechJourney",
     description: "ICT content platform",
   },
   {

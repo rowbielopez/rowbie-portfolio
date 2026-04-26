@@ -218,7 +218,7 @@ export default function ConversionCTA() {
               View Projects
             </motion.a>
             <motion.a
-              href="https://linkedin.com/in/rowbielopez"
+              href="https://www.linkedin.com/in/rowbie-lopez-84608ab4"
               target="_blank"
               rel="noopener noreferrer"
               whileHover={{

@@ -18,7 +18,7 @@ const socialLinks = [
   },
   {
     type: "linkedin" as const,
-    href: "https://linkedin.com/in/rowbielopez",
+    href: "https://www.linkedin.com/in/rowbie-lopez-84608ab4",
     label: "LinkedIn",
   },
   {
@@ -28,7 +28,7 @@ const socialLinks = [
   },
   {
     type: "globe" as const,
-    href: "https://robtechjourney.com",
+    href: "https://www.facebook.com/RobsTechJourney",
     label: "RobTech Journey",
   },
 ];

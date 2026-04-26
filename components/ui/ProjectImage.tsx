@@ -47,7 +47,11 @@ export function ProjectImage({ src, alt, full }: Props) {
         fill
         className="object-cover transition-transform duration-500 hover:scale-[1.02]"
         onError={() => setHasError(true)}
-        sizes={full ? "(max-width: 1024px) 100vw, 960px" : "(max-width: 768px) 100vw, 260px"}
+        sizes={
+          full
+            ? "(max-width: 1024px) 100vw, 960px"
+            : "(max-width: 768px) 100vw, 260px"
+        }
       />
     </div>
   );
