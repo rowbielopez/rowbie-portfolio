@@ -11,8 +11,9 @@ import Experience from "@/components/Experience";
 import Teaching from "@/components/Teaching";
 import TechStack from "@/components/TechStack";
 import Certifications from "@/components/Certifications";
+import ProfessionalEligibilities from "@/components/ProfessionalEligibilities";
+import TrainingsConducted from "@/components/TrainingsConducted";
 import RobTechJourney from "@/components/RobTechJourney";
-import AvailableFor from "@/components/AvailableFor";
 import ConversionCTA from "@/components/ConversionCTA";
 import Testimonials from "@/components/Testimonials";
 import Contact from "@/components/Contact";
@@ -31,13 +32,14 @@ export default function HomePage() {
         <CoreExpertise />
         <FeaturedAthena />
         <FeaturedProjects />
-        <Experience />
         <Teaching />
         <TechStack />
-        <Certifications />
         <RobTechJourney />
-        <AvailableFor />
         <Testimonials />
+        <Experience />
+        <Certifications />
+        <ProfessionalEligibilities />
+        <TrainingsConducted />
         <ConversionCTA />
         <Contact showCv={hasResume} />
       </main>
