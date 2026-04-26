@@ -31,8 +31,8 @@ export async function generateMetadata({
   const project = getProjectBySlug(slug);
   if (!project) return { title: "Project Not Found" };
   return {
-    title: project.title,
-    description: project.shortDescription,
+    title: project.title ?? "Project",
+    description: project.shortDescription ?? project.fullDescription ?? "",
   };
 }
 
@@ -55,21 +55,38 @@ export default async function ProjectPage({ params }: PageProps) {
   const project = getProjectBySlug(slug);
   if (!project) notFound();
 
-  const status = statusStyles[project.status] ?? {
+  const category = project.category ?? "Project";
+  const title = project.title ?? "Untitled Project";
+  const role = project.role ?? "Project Contributor";
+  const statusLabel = project.status ?? "Project";
+  const year = project.year ?? "";
+  const description = project.shortDescription ?? project.fullDescription ?? "";
+  const technologies = project.technologies ?? [];
+  const screenshots = project.screenshots ?? [];
+  const previewType = project.previewType ?? "manual";
+  const image = project.image ?? "";
+  const url = project.url ?? "";
+  const liveUrl = project.liveUrl ?? "";
+  const repositoryUrl = project.repositoryUrl ?? "";
+  const isInternal = project.isInternal === true;
+  const previewEnabled = project.previewEnabled === true;
+
+  const status = statusStyles[statusLabel] ?? {
     bg: "bg-[#F5F5F5]",
     text: "text-[#666666]",
   };
-  const hasPublicUrl = !project.isInternal && isPublicUrl(project.url);
-  const hasLiveUrl = !project.isInternal && isPublicUrl(project.liveUrl);
-  const hasRepositoryUrl = isPublicUrl(project.repositoryUrl);
-  const primaryProjectUrl = hasLiveUrl ? project.liveUrl : hasPublicUrl ? project.url : "";
+  const hasPublicUrl = !isInternal && isPublicUrl(url);
+  const hasLiveUrl = !isInternal && isPublicUrl(liveUrl);
+  const hasRepositoryUrl = isPublicUrl(repositoryUrl);
+  const primaryProjectUrl = hasLiveUrl ? liveUrl : hasPublicUrl ? url : "";
   const isFacebookUrl = !!primaryProjectUrl && primaryProjectUrl.includes("facebook.com");
-  const isCsuProject = project.category === "CSU Projects" || project.category === "CSU Project";
+  const isCsuProject = category === "CSU Projects" || category === "CSU Project";
   const isPrototype =
-    project.status.toLowerCase().includes("prototype") ||
-    project.status.toLowerCase().includes("development");
-  const hasMedia =
-    (project.screenshots?.length ?? 0) > 0 || !!project.demoVideoUrl;
+    statusLabel.toLowerCase().includes("prototype") ||
+    statusLabel.toLowerCase().includes("development");
+  const demoVideoUrl = project.demoVideoUrl ?? "";
+  const demoVideoType = project.demoVideoType ?? "external";
+  const hasMedia = screenshots.length > 0 || !!demoVideoUrl;
 
   return (
     <div className="min-h-screen bg-white">
@@ -102,12 +119,12 @@ export default async function ProjectPage({ params }: PageProps) {
           {/* Badges */}
           <div className="flex flex-wrap gap-2 mb-5">
             <span className="text-[10px] font-semibold tracking-wide uppercase text-[#666666] bg-white border border-[#E5E5E5] px-3 py-1 rounded-full">
-              {project.category}
+              {category}
             </span>
             <span
               className={`text-[10px] font-semibold tracking-wide uppercase px-3 py-1 rounded-full ${status.bg} ${status.text}`}
             >
-              {project.status}
+              {statusLabel}
             </span>
             {isPrototype && (
               <span className="text-[10px] font-semibold tracking-wide uppercase px-3 py-1 rounded-full bg-white border border-[#E5E5E5] text-[#666666]">
@@ -117,24 +134,24 @@ export default async function ProjectPage({ params }: PageProps) {
           </div>
 
           <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold text-[#111111] leading-tight mb-4 tracking-tight">
-            {project.title}
+            {title}
           </h1>
 
           <div className="h-0.5 w-12 bg-[#111111] mb-6" />
 
           <p className="text-base md:text-lg text-[#555555] leading-relaxed max-w-2xl font-light mb-8">
-            {project.shortDescription}
+            {description}
           </p>
 
           {/* Meta row */}
           <div className="flex flex-wrap gap-5 text-sm text-[#777777]">
             <div className="flex items-center gap-1.5">
               <User size={13} className="text-[#AAAAAA]" />
-              <span>{project.role}</span>
+              <span>{role}</span>
             </div>
             <div className="flex items-center gap-1.5">
               <Calendar size={13} className="text-[#AAAAAA]" />
-              <span>{project.year}</span>
+              <span>{year}</span>
             </div>
             {primaryProjectUrl ? (
               <a
@@ -146,7 +163,7 @@ export default async function ProjectPage({ params }: PageProps) {
                 {isFacebookUrl ? <FacebookIcon size={13} /> : <ExternalLink size={13} />}
                 {hasLiveUrl ? "Visit Live Demo" : "Visit Project"}
               </a>
-            ) : project.isInternal ? (
+            ) : isInternal ? (
               <div className="flex items-center gap-1.5">
                 <LockKeyhole size={13} className="text-[#AAAAAA]" />
                 <span className="text-[10px] font-medium px-2.5 py-1 bg-[#F5F5F5] border border-[#E5E5E5] rounded-full text-[#888888] tracking-wide">
@@ -161,9 +178,9 @@ export default async function ProjectPage({ params }: PageProps) {
                 </span>
               </div>
             ) : null}
-            {hasRepositoryUrl && project.repositoryUrl && (
+            {hasRepositoryUrl && repositoryUrl && (
               <a
-                href={project.repositoryUrl}
+                href={repositoryUrl}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="flex items-center gap-1.5 text-[#111111] font-medium hover:underline"
@@ -177,14 +194,14 @@ export default async function ProjectPage({ params }: PageProps) {
           {/* Project preview - full width, prominent */}
           <div className="mt-10">
             <ProjectPreview
-              title={project.title}
-              url={project.url}
-              image={project.image}
-              category={project.category}
-              status={project.status}
-              previewEnabled={project.previewEnabled}
-              previewType={project.previewType}
-              isInternal={project.isInternal}
+              title={title}
+              url={url}
+              image={image}
+              category={category}
+              status={statusLabel}
+              previewEnabled={previewEnabled}
+              previewType={previewType}
+              isInternal={isInternal}
               variant="hero"
             />
           </div>
@@ -199,11 +216,11 @@ export default async function ProjectPage({ params }: PageProps) {
             <CaseStudyTabs project={project} />
             {(!isCsuProject || hasMedia) && (
               <ProjectMediaGallery
-                title={project.title}
-                projectCategory={project.category}
-                screenshots={project.screenshots}
-                demoVideoUrl={project.demoVideoUrl}
-                demoVideoType={project.demoVideoType}
+                title={title}
+                projectCategory={category}
+                screenshots={screenshots}
+                demoVideoUrl={demoVideoUrl}
+                demoVideoType={demoVideoType}
               />
             )}
           </div>
@@ -216,7 +233,7 @@ export default async function ProjectPage({ params }: PageProps) {
                 Technologies
               </h3>
               <div className="flex flex-wrap gap-1.5">
-                {project.technologies.map((tech) => (
+                {technologies.map((tech) => (
                   <span
                     key={tech}
                     className="text-[11px] font-medium px-2.5 py-1 bg-white border border-[#E5E5E5] rounded-lg text-[#555555]"
@@ -233,9 +250,9 @@ export default async function ProjectPage({ params }: PageProps) {
                 Project Details
               </h3>
               {[
-                { label: "Category", value: project.category },
-                { label: "Status", value: project.status },
-                { label: "Year", value: project.year },
+                { label: "Category", value: category },
+                { label: "Status", value: statusLabel },
+                { label: "Year", value: year },
               ].map(({ label, value }) => (
                 <div key={label}>
                   <p className="text-[9px] text-[#BBBBBB] uppercase tracking-wide mb-0.5">
@@ -247,7 +264,7 @@ export default async function ProjectPage({ params }: PageProps) {
             </div>
 
             {/* Project image */}
-            {/* Removed from sidebar — shown prominently in hero section above */}
+            {/* Removed from sidebar; shown prominently in hero section above */}
 
             {/* CTA */}
             <div className="bg-[#111111] rounded-2xl p-5 text-white">

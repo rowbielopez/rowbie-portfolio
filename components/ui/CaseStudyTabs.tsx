@@ -58,6 +58,8 @@ export function CaseStudyTabs({ project }: Props) {
 }
 
 function OverviewTab({ project }: Props) {
+  const fallbackDescription = project.fullDescription ?? project.shortDescription ?? "";
+
   return (
     <div className="space-y-8">
       {project.projectContext && (
@@ -86,8 +88,8 @@ function OverviewTab({ project }: Props) {
           <p className="text-sm text-[#555555] leading-relaxed">{project.solution}</p>
         </div>
       )}
-      {!project.problem && !project.solution && (
-        <p className="text-sm text-[#555555] leading-relaxed">{project.fullDescription}</p>
+      {!project.problem && !project.solution && fallbackDescription && (
+        <p className="text-sm text-[#555555] leading-relaxed">{fallbackDescription}</p>
       )}
       {project.targetUsers && (
         <div className="p-4 bg-[#F5F5F5] rounded-xl border border-[#E5E5E5]">
@@ -100,7 +102,7 @@ function OverviewTab({ project }: Props) {
 }
 
 function FeaturesTab({ project }: Props) {
-  const items = project.features ?? project.highlights;
+  const items = project.features ?? project.highlights ?? [];
 
   return (
     <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
@@ -118,7 +120,7 @@ function FeaturesTab({ project }: Props) {
 }
 
 function ImpactTab({ project }: Props) {
-  const items = project.impactStatements ?? project.impact ?? project.highlights;
+  const items = project.impactStatements ?? project.impact ?? project.highlights ?? [];
   return (
     <div className="space-y-3">
       {items.map((item, i) => (
@@ -156,7 +158,7 @@ function ProcessTab({ project }: Props) {
         </div>
       )}
 
-      {project.architectureDecisions && (
+      {!!project.architectureDecisions?.length && (
         <div>
           <h3 className="text-xs font-bold text-[#111111] uppercase tracking-[0.1em] mb-3">
             Architecture Decisions
@@ -174,7 +176,7 @@ function ProcessTab({ project }: Props) {
         </div>
       )}
 
-      {project.keyChallenges && (
+      {!!project.keyChallenges?.length && (
         <div>
           <h3 className="text-xs font-bold text-[#111111] uppercase tracking-[0.1em] mb-3">
             Key Challenges
@@ -202,7 +204,7 @@ function ProcessTab({ project }: Props) {
         </span>
       </div>
 
-      {project.whatsNext && (
+      {!!project.whatsNext?.length && (
         <div>
           <h3 className="text-xs font-bold text-[#111111] uppercase tracking-[0.1em] mb-3">
             What&apos;s Next

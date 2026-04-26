@@ -175,7 +175,7 @@ export default function FeaturedAthena() {
               transition={{ duration: 0.4 }}
               className="text-[10px] font-semibold tracking-[0.14em] text-[#A3A3A3] uppercase mb-4"
             >
-              Key Features — hover to learn more
+              Explore Core Features
             </motion.p>
 
             <motion.div

@@ -35,11 +35,11 @@ export default function HomePage() {
         <Teaching />
         <TechStack />
         <RobTechJourney />
-        <Testimonials />
         <Experience />
         <Certifications />
         <ProfessionalEligibilities />
         <TrainingsConducted />
+        <Testimonials />
         <ConversionCTA />
         <Contact showCv={hasResume} />
       </main>

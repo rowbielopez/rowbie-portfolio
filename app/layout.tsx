@@ -23,7 +23,7 @@ export const metadata: Metadata = {
     template: "%s | Rowbie Lopez",
   },
   description:
-    "Rowbie Lopez is an ICT Instructor, Web & Information Systems Developer, and Digital Transformation Advocate at Cagayan State University. Over a decade of experience in ICT education, university systems, and AI-assisted development.",
+    "Rowbie Lopez is an ICT Instructor, Web & Information Systems Developer, and Digital Transformation Advocate at Cagayan State University. Over a decade of experience in ICT education, university systems, and practical digital projects.",
   keywords: [
     "Rowbie Lopez",
     "ICT Instructor",
@@ -32,7 +32,7 @@ export const metadata: Metadata = {
     "Cagayan State University",
     "Digital Transformation",
     "Philippines",
-    "AI-assisted development",
+    "ICT training",
     "EdTech",
     "RobTech Journey",
   ],

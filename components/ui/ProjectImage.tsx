@@ -29,10 +29,10 @@ export function ProjectImage({ src, alt, full }: Props) {
             <div className="w-5 h-4 bg-[#CCCCCC] rounded-sm" />
           </div>
           <p className="text-[11px] text-[#BBBBBB] tracking-wide">
-            Preview coming soon
+            Project preview unavailable
           </p>
           <p className="text-[9px] text-[#D4D4D4] mt-1 tracking-wide">
-            Image will be added
+            Image unavailable
           </p>
         </div>
       </div>

@@ -157,7 +157,7 @@ export function ProjectPreview({
                 <ImageIcon size={18} className="text-[#A3A3A3]" />
               </div>
               <p className="text-[11px] font-medium tracking-wide text-[#999999]">
-                Preview coming soon
+                Project preview unavailable
               </p>
             </div>
           )}

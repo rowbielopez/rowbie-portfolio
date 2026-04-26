@@ -239,7 +239,7 @@ export const projects: Project[] = [
     title: "Cagayan State University Official Website",
     slug: "csu-official-website",
     category: "CSU Projects",
-    image: "/projects/csu-website.png",
+    image: "",
     shortDescription:
       "Official university website supporting institutional communication, public information, news publishing, announcements, academic updates, and access to university digital services.",
     fullDescription:
@@ -248,7 +248,7 @@ export const projects: Project[] = [
     technologies: ["PHP", "Laravel", "MySQL", "HTML", "CSS", "JavaScript"],
     status: "Live",
     year: "Ongoing",
-    url: "To be provided",
+    url: "",
     previewEnabled: false,
     previewType: "manual",
     isInternal: false,
@@ -280,7 +280,7 @@ export const projects: Project[] = [
     title: "CSU Campus Websites",
     slug: "csu-campus-websites",
     category: "CSU Projects",
-    image: "/projects/csu-campus-websites.png",
+    image: "",
     shortDescription:
       "Multi-campus website initiative supporting the online presence of CSU campuses including Andrews, Aparri, Carig, Gonzaga, Lal-lo, Lasam, Piat, Sanchez Mira, and Solana.",
     fullDescription:
@@ -289,7 +289,7 @@ export const projects: Project[] = [
     technologies: ["PHP", "Laravel", "MySQL", "HTML", "CSS", "JavaScript"],
     status: "Live",
     year: "Ongoing",
-    url: "To be provided",
+    url: "",
     previewEnabled: false,
     previewType: "manual",
     isInternal: false,
@@ -321,7 +321,7 @@ export const projects: Project[] = [
     title: "Old CSU MyPortal / Student Portal",
     slug: "csu-student-portal",
     category: "CSU Projects",
-    image: "/projects/old-csu-myportal.png",
+    image: "",
     shortDescription:
       "Student portal supporting online student access to admission, registration, enrollment-related information, account management, and student-centered online services.",
     fullDescription:
@@ -330,7 +330,7 @@ export const projects: Project[] = [
     technologies: ["PHP", "MySQL", "HTML", "CSS", "JavaScript"],
     status: "Legacy / Internal",
     year: "Past",
-    url: "To be provided",
+    url: "",
     previewEnabled: false,
     previewType: "manual",
     isInternal: false,
@@ -362,12 +362,8 @@ export const projects: Project[] = [
     title: "MyCSU SSO Portal",
     slug: "mycsu-sso-portal",
     category: "CSU Projects",
-    image: "/projects/mycsu-sso.png",
-    screenshots: [
-      "/projects/mycsu-sso/screenshot-1.png",
-      "/projects/mycsu-sso/screenshot-2.png",
-      "/projects/mycsu-sso/screenshot-3.png",
-    ],
+    image: "",
+    screenshots: [],
     shortDescription:
       "A centralized login and single sign-on portal designed to provide unified access to CSU digital systems through one secure entry point.",
     fullDescription:
@@ -423,7 +419,7 @@ export const projects: Project[] = [
     title: "Enrollment-to-Employment System (E2E)",
     slug: "e2e-system",
     category: "CSU Projects",
-    image: "/projects/e2e-system.png",
+    image: "",
     shortDescription:
       "University-wide information system supporting the academic lifecycle from admission and enrollment to employment-related tracking.",
     fullDescription:
@@ -464,7 +460,7 @@ export const projects: Project[] = [
     title: "Human Resource Information System (HRIS)",
     slug: "hris-system",
     category: "CSU Projects",
-    image: "/projects/hris.png",
+    image: "",
     shortDescription:
       "Web-based HR system supporting PDS management, leave credits, service records, calendar of events, employee records, data validation, and HR process tracking.",
     fullDescription:
@@ -506,7 +502,7 @@ export const projects: Project[] = [
     title: "Online Faculty Evaluation System (OFES)",
     slug: "ofes-system",
     category: "CSU Projects",
-    image: "/projects/ofes.png",
+    image: "",
     shortDescription:
       "Faculty evaluation system supporting student and dean evaluations, semester-based setup, evaluation summaries, individual faculty reports, PDF generation, and role-based access.",
     fullDescription:
@@ -548,7 +544,7 @@ export const projects: Project[] = [
     title: "Procurement Management System",
     slug: "procurement-management-system",
     category: "CSU Projects",
-    image: "/projects/procurement-management-system.png",
+    image: "",
     shortDescription:
       "Research-based procurement workflow system concept aligned with Philippine government procurement processes, RA 9184, and RA 12009.",
     fullDescription:
@@ -557,7 +553,7 @@ export const projects: Project[] = [
     technologies: ["PHP", "Laravel", "MySQL", "JavaScript"],
     status: "Research Project",
     year: "Past",
-    url: "To be provided",
+    url: "",
     previewEnabled: false,
     previewType: "manual",
     isInternal: false,
@@ -591,7 +587,7 @@ export const projects: Project[] = [
     title: "Queueing Management System",
     slug: "queueing-management-system",
     category: "CSU Projects",
-    image: "/projects/queueing-management-system.png",
+    image: "",
     shortDescription:
       "Digital queueing system supporting organized service delivery across university offices, reducing wait times and managing in-person service queues efficiently.",
     fullDescription:

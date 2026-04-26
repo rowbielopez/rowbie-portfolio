@@ -25,6 +25,8 @@ export default function ProjectCard({ project }: { project: Project }) {
   const shouldReduce = useReducedMotion();
   const cardRef = useRef<HTMLDivElement>(null);
   const isHighlight = project.highlight === true;
+  const technologies = project.technologies ?? [];
+  const role = project.role ?? "Project Contributor";
 
   /* 3D tilt motion values */
   const rawX = useMotionValue(0);
@@ -125,7 +127,7 @@ export default function ProjectCard({ project }: { project: Project }) {
 
         {/* Tech badges */}
         <div className="flex flex-wrap gap-1.5 mb-4">
-          {project.technologies.slice(0, 4).map((tech) => (
+          {technologies.slice(0, 4).map((tech) => (
             <motion.span
               key={tech}
               whileHover={{ y: -1, borderColor: "#999999" }}
@@ -135,9 +137,9 @@ export default function ProjectCard({ project }: { project: Project }) {
               {tech}
             </motion.span>
           ))}
-          {project.technologies.length > 4 && (
+          {technologies.length > 4 && (
             <span className="text-[10px] font-medium px-2 py-0.5 bg-[#F5F5F5] text-[#AAAAAA] rounded border border-[#E5E5E5]">
-              +{project.technologies.length - 4}
+              +{technologies.length - 4}
             </span>
           )}
         </div>
@@ -145,13 +147,13 @@ export default function ProjectCard({ project }: { project: Project }) {
         {/* Footer */}
         <div className="flex items-center justify-between mt-auto pt-4 border-t border-[#F0F0F0]">
           <p className="text-[10px] text-[#AAAAAA] truncate max-w-[120px]">
-            {project.role.split("/")[0].trim()}
+            {role.split("/")[0].trim()}
           </p>
           <Link
             href={`/projects/${project.slug}`}
             className="group/link inline-flex items-center gap-1.5 text-xs font-semibold text-[#111111]"
           >
-            Details
+            View details
             <motion.span
               className="inline-flex"
               whileHover={{ x: 3 }}

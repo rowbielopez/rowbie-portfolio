@@ -108,8 +108,8 @@ export default function Contact({ showCv = false }: { showCv?: boolean }) {
             </p>
             <p className="text-[#666666] text-sm leading-relaxed">
               Based in the Philippines and open to conversations about
-              university systems development, teaching collaborations,
-              AI-assisted development, and meaningful ICT projects.
+              university systems development, ICT education, EdTech
+              collaboration, and practical digital projects.
             </p>
 
             {/* Tags */}

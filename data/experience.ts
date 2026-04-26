@@ -17,7 +17,7 @@ export interface ExperienceItem {
 export const experienceItems: ExperienceItem[] = [
   {
     organization: "Cagayan State University",
-    years: "2020 – Present",
+    years: "2020 - Present",
     roles: [
       {
         title: "Instructor / ICT Educator",
@@ -52,7 +52,7 @@ export const experienceItems: ExperienceItem[] = [
   {
     title: "Web Developer",
     organization: "Cagayan State University",
-    years: "2014 – 2020",
+    years: "2014 - 2020",
     description:
       "Developed and maintained university websites, portals, and internal web-based systems supporting academic and administrative operations.",
     keyPoints: [
@@ -63,9 +63,9 @@ export const experienceItems: ExperienceItem[] = [
     ],
   },
   {
-    title: "Founder & Developer — Independent Projects",
+    title: "Founder & Developer - Independent Projects",
     organization: "Independent / Personal Projects",
-    years: "2024 – Present",
+    years: "2024 - Present",
     description:
       "Builds and explores independent digital products focused on EdTech, productivity, local discovery, and practical web-based tools.",
     keyPoints: [
@@ -77,7 +77,7 @@ export const experienceItems: ExperienceItem[] = [
   {
     title: "Admin Aide III",
     organization: "LGU Tuguegarao City",
-    years: "2013 – 2014",
+    years: "2013 - 2014",
     description:
       "Handled administrative, data encoding, payroll preparation, design, and basic technical support functions.",
     keyPoints: [
